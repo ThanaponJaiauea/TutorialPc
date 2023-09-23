@@ -1,0 +1,56 @@
+<div class="menuHeader" id="walletHeader"
+    style="position: absolute;display: flex;justify-content: center;align-items: center; font-size: 20px; font-weight: 700; background: transparent;">
+    <span id="walletHeaderBody">wallet</span>
+</div>
+<div class="menuPage bg-my" id="walletPage" style="position: absolute;overflow: hidden; background: transparent;">
+
+    <div id="scrollerMy">
+
+        <div style="height: 900px;"></div>
+
+    </div>
+
+</div>
+<script>
+    var walletObj = new wallet();
+    walletObj.init();
+
+    function wallet() {
+
+        var myScroll;
+        var objInfo = null;
+
+        this.init = function () {
+
+            $("#walletHeader").css({ "width": "100%", "height": headH, "left": (-1.0) * w, "top": 0 });
+            $("#walletPage").css({ "width": w, "height": h - headH - menuH, "position": "absolute", "left": (-1.0) * w, "top": headH });
+            myScroll = new IScroll('#walletPage', { probeType: 1, mouseWheel: true });
+            loadList();
+
+        }
+        this.call = function () {
+
+            $("#walletPage").transition({
+                x: w
+            }, 0);
+            $("#walletHeader").transition({
+                x: w
+            }, 0);
+            myScroll.refresh()
+        }
+
+        function loadList() {
+            myScroll = new IScroll('#walletPage', { probeType: 1, mouseWheel: true });
+
+            myScroll.on('scroll', function () {
+                console.log("====>" + this.y);
+            });
+
+            myScroll.on('scrollEnd', function () {
+                console.log('====' + (new Date()));
+            });
+            myScroll.refresh();
+        }
+
+    }
+</script>

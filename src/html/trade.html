@@ -1,0 +1,56 @@
+<div class="menuHeader" id="tradeHeader"
+    style="position: absolute;display: flex;justify-content: center;align-items: center; font-size: 20px; font-weight: 700; background: transparent;">
+    <span id="tradeHeaderBody">trade</span>
+</div>
+<div class="menuPage bg-my" id="tradePage" style="position: absolute;overflow: hidden; background: transparent;">
+
+    <div id="scrollerMy">
+
+        <div style="height: 900px;"></div>
+
+    </div>
+
+</div>
+<script>
+    var tradeObj = new trade();
+    tradeObj.init();
+
+    function trade() {
+
+        var myScroll;
+        var objInfo = null;
+
+        this.init = function () {
+
+            $("#tradeHeader").css({ "width": "100%", "height": headH, "left": (-1.0) * w, "top": 0 });
+            $("#tradePage").css({ "width": w, "height": h - headH - menuH, "position": "absolute", "left": (-1.0) * w, "top": headH });
+            myScroll = new IScroll('#tradePage', { probeType: 1, mouseWheel: true });
+            loadList();
+
+        }
+        this.call = function () {
+
+            $("#tradePage").transition({
+                x: w
+            }, 0);
+            $("#tradeHeader").transition({
+                x: w
+            }, 0);
+            myScroll.refresh()
+        }
+
+        function loadList() {
+            myScroll = new IScroll('#tradePage', { probeType: 1, mouseWheel: true });
+
+            myScroll.on('scroll', function () {
+                console.log("====>" + this.y);
+            });
+
+            myScroll.on('scrollEnd', function () {
+                console.log('====' + (new Date()));
+            });
+            myScroll.refresh();
+        }
+
+    }
+</script>
