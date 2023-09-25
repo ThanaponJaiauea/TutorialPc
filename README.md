@@ -540,11 +540,8 @@ Conponents comon for using all new page show
 
 <script>
 
-
-    var API_SERVER = "http://18.142.136.157/api";
-    var WS_SERVER = "ws://18.142.136.157/api";
-
-
+    // API path 
+    var API_SERVER = "API path";
 
     var token = null;
     var deviceId = null;
@@ -554,7 +551,7 @@ Conponents comon for using all new page show
     var heartBeatTimeStamp = 0;
 
     var TIMEOUT = 10000;
-    var PAGETIMEOUT = 300;//页面切换时间
+    var PAGETIMEOUT = 300;
 
     //  width, height auto display
     var w = $(window).width();
