@@ -762,7 +762,7 @@ All components will be show in root in index.html
             $("#menu_main").css({ "height": menuH });
             $("#body_main").css({ "height": h - menuH });
 
-
+        // Click call function to show html page
             $("#menu_home").click(function () {
                 mainObj.menuhome();
                 
@@ -1163,12 +1163,14 @@ function headerInit(pageId, titleName, backFun) {
 
 }
 
+//เรียกหน้า html มาแสดง
 function pageShow(pageId) {
     $("#" + pageId).transition({
         x: w
     }, PAGETIMEOUT);
 }
 
+//เอาหน้า html ออกจากหน้าจอ
 function pageUnShow(pageId) {
     $("#" + pageId).transition({
         x: 0
@@ -1239,6 +1241,7 @@ function getAbsTime(time) {
     }
 }
 
+//ป๊อปอัพแจ้งเตือน
 function alert() {
     this.init = function () {
         $("#alert").css({ "display": "none", "width": $(window).width(), "height": $(window).height() });
@@ -1259,6 +1262,7 @@ function alert() {
     }
 }
 
+//ป๊อปอัพตัว loader
 function loader() {
     var opts = {
         lines: 16, // The number of lines to draw
@@ -1295,6 +1299,7 @@ function loader() {
     }
 }
 
+// ป๊อปอัพกล่อง message 
 function messageBox() {
 
     this.init = function () {
@@ -1326,6 +1331,7 @@ function messageBox() {
     }
 }
 
+// ป๊อปอัพหน้า message 
 function messagePage() {
 
     this.init = function () {
