@@ -1161,6 +1161,7 @@ function headerInit(pageId, titleName, backFun) {
     $("#" + pageId + "_header_right_body").css({ "height": headH, "width": w - 2 * headH, "color": "#000" });
     $("#" + pageId + "_header_right_right").css({ "height": headH, "width": headH });
 
+   //unshow this page 
     $("#" + pageId + "_header_left").click(function () {
         pageUnShow(pageId + "Page");
         if (backFun != null) {
@@ -1250,19 +1251,24 @@ function getAbsTime(time) {
 
 //ป๊อปอัพแจ้งเตือน
 function alert() {
+    // ประกาศค่าเรื่ม
     this.init = function () {
         $("#alert").css({ "display": "none", "width": $(window).width(), "height": $(window).height() });
         $("#alert").click(function () {
             $("#alert").css({ "display": "none" });
         });
     }
+    // โชว์ ป๊อปอัพ
     this.show = function (msg) {
         $("#alertMsg").html(msg);
         $("#alert").css({ "display": "flex" });
     }
+
+    // ปิดป๊อปอัพ
     this.unShow = function () {
         $("#alert").css({ "display": "none" });
     }
+    // ปิดแจ้งเตือน
     function unShowAlert() {
         $("#alert").css({ "display": "none" });
         $("#alertMsg").html("");
@@ -1293,13 +1299,16 @@ function loader() {
     };
     var spiner = null;
     this.init = function () {
+         // ประกาศค่าเรื่ม
         $("#loader").css({ "width": $(window).width(), "height": $(window).height(), "display": "none" });
         spiner = new Spinner(opts);
     }
+    // โชว์ โหลด
     this.show = function () {
         $("#loader").css({ "display": "block" });
         spiner.spin(document.getElementById("loader"));
     }
+    // ปิด โหลด
     this.unShow = function () {
         spiner.spin();
         $("#loader").css({ "display": "none" });
@@ -1308,13 +1317,14 @@ function loader() {
 
 // ป๊อปอัพกล่อง message 
 function messageBox() {
-
+      // ประกาศค่าเรื่ม
     this.init = function () {
         $("#messageBox").css({ "display": "none", "width": $(window).width(), "height": $(window).height() });
         $("#messageBoxBg").css({ "width": $(window).width(), "height": $(window).height() });
         $("#messageBoxBodyBg").css({ "width": $(window).width(), "height": $(window).height() });
         $("#messageBoxBody").css({ "width": $(window).width() * 0.75, "height": "200px" });
     }
+      // โชว์ป็อบอัพ
     this.show = function (msgContent, okFun, cancelFun) {
 
         $("#messageBox").css({ "display": "flex", "left": 0 });
@@ -1333,6 +1343,7 @@ function messageBox() {
             msgObj.unShow();
         });
     }
+      // ปิดป็อบอัพ
     this.unShow = function () {
         $("#messageBox").css({ "display": "none" });
     }
@@ -1340,13 +1351,14 @@ function messageBox() {
 
 // ป๊อปอัพหน้า message 
 function messagePage() {
-
+  // ประกาศค่าเรื่ม
     this.init = function () {
         $("#messagePage").css({ "display": "none", "width": $(window).width(), "height": $(window).height() });
         $("#messagePageBg").css({ "width": $(window).width(), "height": $(window).height() });
         $("#messagePageBodyBg").css({ "width": $(window).width(), "height": $(window).height() });
         $("#messagePageBody").css({ "width": $(window).width() * 0.75, "height": "200px" });
     }
+      // โชว์ป็อบอัพ
     this.show = function (msgContent, cancelFun) {
 
         $("#messagePage").css({ "display": "flex", "left": 0 });
@@ -1370,6 +1382,7 @@ function messagePage() {
             event.stopPropagation();
         });
     }
+      // ปิดป็อบอัพ
     this.unShow = function () {
         $("#messagePage").css({ "display": "none" });
     }
