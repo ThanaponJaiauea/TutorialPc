@@ -199,7 +199,7 @@
 
     function startApp() {
 
-
+        mResObj.showHtml("lang.html", "root");
         mResObj.showHtml("main.html", "root");
         mResObj.showHtml("start.html", "root");
         mResObj.showHtml("login.html", "root");
@@ -207,7 +207,7 @@
             
         mainObj.checkIsLogin();
 
-        ChangeLanguage();
+        setAllPageLang()
         firstStartFun();
 
     }

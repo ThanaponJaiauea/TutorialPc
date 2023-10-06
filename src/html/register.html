@@ -3,7 +3,7 @@
     <div style="height: 20px;"></div>
 
     <div class="flexCenter">
-        <img class="regisImg"  src="./js/pic/register.png ">
+        <img class="regisImg" src="./js/pic/register.png ">
     </div>
 
     <div style="height: 20px;"></div>
@@ -19,20 +19,20 @@
         <div class="coverBoxInput">
             <img id="regist_mobile">
             <input id="mobile" class="boxInput" type="number" placeholder="Phone" pattern="/^-?\d+\.?\d*$/"
-                onKeyPress="if(this.value.length==11) return false;"/>
+                onKeyPress="if(this.value.length==11) return false;" />
         </div>
         <div style="height: 15px;"></div>
 
         <div class="coverBoxInput">
             <img id="regist_pass">
-            <input id="r_password" class="boxInput" type="password" placeholder="Password"/>
+            <input id="r_password" class="boxInput" type="password" placeholder="Password" />
         </div>
 
         <div style="height: 15px;"></div>
 
         <div class="coverBoxInput">
             <img id="regist_pass2">
-            <input id="r_password_again" class="boxInput" type="password" placeholder="Confrim Password"/>
+            <input id="r_password_again" class="boxInput" type="password" placeholder="Confrim Password" />
 
         </div>
         <div class="flexEndRow80">
@@ -68,18 +68,17 @@
 
 <script>
 
-
     var registerObj = new register();
     registerObj.init();
     var myScroll
-
-
 
     function register() {
         this.init = function () {
 
 
             pageInit("registerPage");
+            setAllUILang("register");
+
 
             $('#regist_name').attr('src', picRes['account.png'])
             $('#regist_mobile').attr('src', picRes['phone.png'])
@@ -135,71 +134,21 @@
                 var mobile = $("#mobile").val();
                 var p = $("#r_password").val();
                 var p_again = $("#r_password_again").val();
-                var inviteCode = $("#inviteCode").val();
+                // var inviteCode = $("#inviteCode").val();
 
-                if ((mobile.length != 11)) {
-                    Swal.fire({
-                        html: `<span id="inputNumber" style='color:#000;'></span>`,
-                        imageUrl: picRes['warningIcon.png'],
-                        imageWidth: 100,
-                        imageHeight: 100,
-                        focusConfirm: false,
-                        confirmButtonText: 'OK',
-                        customClass: {
-                            confirmButton: 'button_ok_span'
-                        },
-                        confirmButtonColor: '#3085d6',
-                        background: '#fff',
-                    })
-                    ChangeLanguage()
+                if ((mobile == '') || (p == '') || (p_again == '') || (name == '') ) {
+                    msgPageObj.show(NSLang('register.fill'))
                 }
-                if ((p.length < 6) || (p.length > 30) || (p_again.length < 6) || (p_again.length > 30)) {
-                    Swal.fire({
-                        html: `<span id="confirm_password" style='color:#000;'></span>`,
-                        imageUrl: picRes['warningIcon.png'],
-                        imageWidth: 100,
-                        imageHeight: 100,
-                        focusConfirm: false,
-                        confirmButtonText: 'OK',
-                        customClass: {
-                            confirmButton: 'button_ok_span'
-                        },
-                        confirmButtonColor: '#3085d6',
-                        background: '#fff',
-                    })
-                    ChangeLanguage()
+
+                if ((mobile.length != 11) && (p != '') && (p_again != '') && (name != '')) {
+                    msgPageObj.show(NSLang('register.digit'))
                 }
-                if ((mobile == '') || (p == '') || (p_again == '') || (name == '')) {
-                    Swal.fire({
-                        html: `<span id="please_enter" style='color:#000;'></span>`,
-                        imageUrl: picRes['warningIcon.png'],
-                        imageWidth: 100,
-                        imageHeight: 100,
-                        focusConfirm: false,
-                        confirmButtonText: 'OK',
-                        customClass: {
-                            confirmButton: 'button_ok_span'
-                        },
-                        confirmButtonColor: '#3085d6',
-                        background: '#fff',
-                    })
-                    ChangeLanguage()
+                if ((p.length < 6) && (p.length > 30) && (p_again.length < 6) && (p_again.length > 30) && (mobile != '') && (name != '')) {
+                    msgPageObj.show(NSLang('register.pass'))
                 }
-                if (p != p_again) {
-                    Swal.fire({
-                        html: `<span id="Inconsistent" style='color:#000;'></span>`,
-                        imageUrl: picRes['warningIcon.png'],
-                        imageWidth: 100,
-                        imageHeight: 100,
-                        focusConfirm: false,
-                        confirmButtonText: 'OK',
-                        customClass: {
-                            confirmButton: 'button_ok_span'
-                        },
-                        confirmButtonColor: '#3085d6',
-                        background: '#fff',
-                    })
-                    ChangeLanguage()
+
+                if ((p != p_again) && (mobile != '') && (p != '') && (p_again != '') && (name != '')) {
+                    msgPageObj.show(NSLang('register.repass'))
                 }
                 if ((mobile != '') && (p != '') && (p_again.length >= 6) && (p == p_again) && (p_again.length <= 30) && (p.length >= 6) && (p.length <= 30) && (mobile.length = 11)) {
                     setTimeout(function () {
@@ -246,74 +195,22 @@
                         if (data.code == 0) {
 
                             cleanInput();
-                            Swal.fire({
-                                html: `<span id="successfully_register" style='color:#000;'></span>`,
-                                icon: 'success',
-                                focusConfirm: false,
-                                confirmButtonText: 'OK',
-                                customClass: {
-                                    confirmButton: 'button_ok_span'
-                                },
-                                confirmButtonColor: '#3085d6',
-                                background: '#fff',
-                            })
-                            ChangeLanguage()
+                            msgPageObj.show(NSLang('register.success'))
                             setTimeout(function () {
                                 pageUnShow('registerPage');
                             }, 1000)
                         }
-                        if (data.code == 4023) {
-                            Swal.fire({
-                                html: `<span id="phone_existed" style='color:#000;'></span>`,
-                                imageUrl: picRes['warningIcon.png'],
-                                imageWidth: 100,
-                                imageHeight: 100,
-                                focusConfirm: false,
-                                confirmButtonText: 'OK',
-                                customClass: {
-                                    confirmButton: 'button_ok_span'
-                                },
-                                confirmButtonColor: '#3085d6',
-                                background: '#fff',
-                            })
-                            ChangeLanguage()
-                        }
-                        if (data.code == 4035) {
-                            Swal.fire({
-                                html: `<span id="code_invalid" style='color:#000;'></span>`,
-                                imageUrl: picRes['warningIcon.png'],
-                                imageWidth: 100,
-                                imageHeight: 100,
-                                focusConfirm: false,
-                                confirmButtonText: 'OK',
-                                customClass: {
-                                    confirmButton: 'button_ok_span'
-                                },
-                                confirmButtonColor: '#3085d6',
-                                background: '#fff',
-                            })
-                            ChangeLanguage()
+                        else {
+
+                            msgPageObj.show(getStatusCode(data.code))
                         }
                     },
                     error: function (xmlhttprequest, error) {
 
                         loaderObj.unShow();
-
-                        Swal.fire({
-                            html: `<span id="server_problem" style='color:#000;'></span>`,
-                            imageUrl: picRes['warningIcon.png'],
-                            imageWidth: 100,
-                            imageHeight: 100,
-                            focusConfirm: false,
-                            confirmButtonText: 'OK',
-                            customClass: {
-                                confirmButton: 'button_ok_span'
-                            },
-                            confirmButtonColor: '#3085d6',
-                            background: '#fff',
-                        })
-                        ChangeLanguage()
+                        msgPageObj.show(NSLang('sys.serverError'))
                         cleanInput();
+                      
                     },
                     complete: function () {
                     }

@@ -7,7 +7,7 @@
     </div>
 
     <div id="start_login" style="width: 100%; height: 200px;" class="flexCenter">    
-            <div class="btnComm" >Get start</div>
+            <div class="btnComm" id="getStart">Get start</div>
 
     </div>
 
@@ -28,6 +28,7 @@
         this.init = function () {
 
             pageInit("startPage");
+            setAllUILang('getstart');
             $('#start_login').click( function() {
                 pageShow('loginPage')
             })

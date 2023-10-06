@@ -30,7 +30,7 @@
 
         <div class="coverBoxInput">
             <img id="login_pass">
-            <input id="password" class="boxInput" type="password" placeholder="Password"/>
+            <input id="password" class="boxInput" type="password" placeholder="Password" />
         </div>
 
         <div style="height: 15px;"></div>
@@ -80,10 +80,12 @@
             callApp('ask_deviceId');
             askDeviceIdFun();
 
+            setAllUILang("login")
+
             pageInit("loginPage");
 
-            $('#login_phone').attr("src" ,picRes['phone.png'] )      
-            $('#login_pass').attr("src" ,picRes['password.png'] )
+            $('#login_phone').attr("src", picRes['phone.png'])
+            $('#login_pass').attr("src", picRes['password.png'])
 
 
             $("#backBtn").click(function () {
@@ -124,27 +126,12 @@
 
                 if (!isAgree) {
 
-                    Swal.fire({
-                        icon: 'warning',
-                        showConfirmButton: false,
-                        title: `<span style='color:#1E232C;font-size: 14px;'><b id='loging_popUp'>Please Confirm Privacy Policy</b></span>`,
-                        html: '<div style="display: flex;justify-content: space-between;align-items: center;">' +
-                            '</div>'
-                    })
-                    ChangeLanguage();
-
-
+                    msgPageObj.show(NSLang('login.policy'))
                     return;
                 }
 
                 if ($("#mobileLogin").val() == "" || $("#password").val() == "") {
-                    Swal.fire({
-                        icon: 'warning',
-                        showConfirmButton: false,
-                        title: `<span style='color:#1E232C;font-size: var(--text-size02);'><b id='login_fail'>Please fill input</b></span>`,
-                        html: '<div style="display: flex;justify-content: space-between;align-items: center;">' +
-                            '</div>'
-                    })
+                    msgPageObj.show(NSLang('login.password'))
                 }
 
                 if (isAgree && $("#mobileLogin").val() != "" && $("#password").val() != "") {
@@ -189,35 +176,20 @@
 
 
                         if (data.code == 0) {
+
                             // location.reload();
                             cleanInput();
                             var tokenObj = data.result;
                             localStorage.setItem('token', JSON.stringify(tokenObj));
                             mainObj.checkIsLogin();
                         }
-                        if (data.code == 4010 && $("#mobileLogin").val() != "" && $("#password").val() != "") {
-                            Swal.fire({
-                                icon: 'error',
-                                showConfirmButton: false,
-                                title: `<span style='color:#1E232C;font-size: var(--text-size02);'><b id='login_fail'>mobile or password is incorrect.</b></span>`,
-                                html: '<div style="display: flex;justify-content: space-between;align-items: center;">' +
-                                    '</div>'
-                            })
+                        else {
+                            msgPageObj.show(getStatusCode(data.code))
                         }
                     },
                     error: function (xmlhttprequest, error) {
                         loaderObj.unShow();
-                        console.log(error);
-                        if (xmlhttprequest.responseJSON.error == "invalid password") {
-                            Swal.fire({
-                                icon: 'error',
-                                showConfirmButton: false,
-                                title: `<span style='color:#1E232C;font-size: var(--text-size02);'><b id='login_fail'>Failed</b></span>`,
-                                html: '<div style="display: flex;justify-content: space-between;align-items: center;">' +
-                                    '</div>'
-                            })
-                            ChangeLanguage();
-                        }
+                        msgPageObj.show(NSLang('sys.serverError'))
                     },
                     complete: function () {
                     }
