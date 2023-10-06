@@ -1,6 +1,63 @@
+<!-- Yojoies 前端开发工作手册 -->
+
+目录：
+一、前端开发准测：
+1、标准使用工具：Visual Studio；
+<!-- 使用工具和搭建环境的学习 -->
+
+2、html和css中不可使用属性；
+<!-- 知道可以使用的属性标准和为什么使用 -->
+
+3、JavaScript中的使用规则：基于jQuery
+<!-- 特别指向使用插件的范围：必须使用插件；可延申使用插件 -->
+
+4、基本使用方法：
+a，全局变量；
+<!-- 特指在index中的所有编写方法 -->
+b，菜单模式；
+<!-- 特指如何编写main.html页的方法 -->
+c，单页标准模式；
+<!-- @temple.html是一个可编写的空页，作为单页标准页 -->
+
+b，单页特殊模式；
+<!-- 举例：start、login、register、lang页都是作为特殊页来进行编写 -->
+
+
+e，widget.js中的定义；
+<!-- 赋予这个js文件功能，与index配合使用，同时作用于全局变量。 -->
+
+@==> pageInit 函数功能 使用后，初始化每页固定其宽高位置的方法。
+@==> pageShow 使用后，
+
+
+f，基本css页的使用；
+<!-- 如何使用bSytle.html页，设置app布局风格的编写方法 -->
+
+
+g，多语言编写模式；
+<!-- 调用方法如何使用lang.html -->
+
+
+h，弹窗编写模式；
+<!-- 调用方法如何使用：alert、msgObj -->
+
+
+
+二、高级编写模式与规则：
+
+1、页面编写格式标准；
+
+
+
+
+
+
 # Yojoies Development Document (Front-end developer)
 ## Model Structure Project
 All components have 4 parts
+
+
+
 
 - [CSS Structure](#CSS-Structure)
     - [Login css](#login-css)
