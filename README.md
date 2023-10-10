@@ -1764,7 +1764,6 @@ All components will be show in root in index.html
             $("#main").css({ "background-color": "#80DEEA" });
             homeObj.init()
             homeObj.call()
-            ChangeLanguage()
         }
 
         // Show trade page
@@ -1780,8 +1779,7 @@ All components will be show in root in index.html
             $("#menuwalletSpan").css({ "color": "#97979B", "font-size": "10px" });
             $("#menuSettingSpan").css({ "color": "#97979B", "font-size": "10px" });
             $("#main").css({ "background-color": "#F8BBD0" });
-            
-            ChangeLanguage()
+        
             tradeObj.init()
             tradeObj.call();
         }
@@ -1802,7 +1800,7 @@ All components will be show in root in index.html
 
             walletObj.init();
             walletObj.call();
-            ChangeLanguage()
+    
 
         }
 
@@ -1820,7 +1818,6 @@ All components will be show in root in index.html
             $("#menuSettingSpan").css({ "color": "var(--bg-foot)", "font-size": "12px" });
             $("#main").css({ "background-color": "#CFD8DC" });
             
-            ChangeLanguage()
             settingObj.init()
             settingObj.call();
 
@@ -2234,10 +2231,6 @@ on click menu to show content
                 pageShow("loginPage");
                 pageUnShow("registerPage");
             })
-            setTimeout(() => {
-                ChangeLanguage()
-
-            }, 1000)
 
             $("#r_password").keypress(function (event) {
                 var ew = event.which;
