@@ -5,47 +5,47 @@
 1、标准使用工具：Visual Studio；
 <!-- 使用工具和搭建环境的学习 -->
 
-2、html和css中不可使用属性；
+2、html和css中不可使用属性；(ไม่สามารถใช้แอตทริบิวต์ใน html และ css)
 <!-- 知道可以使用的属性标准和为什么使用 -->
 
-3、JavaScript中的使用规则：基于jQuery
+3、JavaScript中的使用规则：基于jQuery (กฎการใช้งานใน JavaScript: ขึ้นอยู่กับ jQuery)
 <!-- 特别指向使用插件的范围：必须使用插件；可延申使用插件 -->
 
-4、基本使用方法：
-a，全局变量；
+4、基本使用方法：(การใช้งานพื้นฐาน)
+a，全局变量；(ตัวแปรโกลบอล)
 <!-- 特指在index中的所有编写方法 -->
-b，菜单模式；
+b，菜单模式；(โหมดเมนู)
 <!-- 特指如何编写main.html页的方法 -->
-c，单页标准模式；
+c，单页标准模式；(โหมดมาตรฐานหน้าเดียว)
 <!-- @temple.html是一个可编写的空页，作为单页标准页 -->
 
-b，单页特殊模式；
+b，单页特殊模式；(โหมดพิเศษหน้าเดียว)
 <!-- 举例：start、login、register、lang页都是作为特殊页来进行编写 -->
 
 
-e，widget.js中的定义；
+e，widget.js中的定义；(คำจำกัดความ)
 <!-- 赋予这个js文件功能，与index配合使用，同时作用于全局变量。 -->
 
-@==> pageInit 函数功能 使用后，初始化每页固定其宽高位置的方法。
-@==> pageShow 使用后，
+@==> pageInit 函数功能 使用后，初始化每页固定其宽高位置的方法。(ฟังก์ชั่น: หลังการใช้งาน ให้เริ่มต้นวิธีการกำหนดความกว้างและความสูงของแต่ละหน้า)
+@==> pageShow 使用后，(หลังการใช้งาน)
 
 
-f，基本css页的使用；
+f，基本css页的使用；(การใช้หน้า CSS พื้นฐาน)
 <!-- 如何使用bSytle.html页，设置app布局风格的编写方法 -->
 
 
-g，多语言编写模式；
+g，多语言编写模式；(โหมดการเขียนหลายภาษา)
 <!-- 调用方法如何使用lang.html -->
 
 
-h，弹窗编写模式；
+h，弹窗编写模式；(โหมดการเขียนหน้าต่างป๊อปอัป)
 <!-- 调用方法如何使用：alert、msgObj -->
 
 
 
-二、高级编写模式与规则：
+二、高级编写模式与规则：(รูปแบบและกฎการเขียนขั้นสูง)
 
-1、页面编写格式标准；
+1、页面编写格式标准；(รูปแบบการเขียนหน้ามาตรฐาน)
 
 
 
@@ -59,11 +59,13 @@ All components have 4 parts
 
 
 
-- [CSS Structure](#CSS-Structure)
+- [CSS Structure](#CSS-structure)
     - [Login css](#login-css)
     - [Main css](#main-css)
-- [Html Structure](#html-Structure)
-    - [Index html structure](#index-html-structure)      
+- [Html Structure](#html-structure)
+    - [aTemplate html structure](#atemplate-html-structure) 
+    - [bStyle html structure](#bstyle-html-structure) 
+    - [Index html structure](#index-html-structure)   
     - [Page init html](#page-init-html)
     - [Login html structure](#login-html-structure)
     - [Main html structure](#main-html-structure)
@@ -241,6 +243,672 @@ select:focus {
 
 
 ### Html Structure
+
+#### aTemplate html structure
+
+
+```javascript
+
+<!-- 页的id名和定位 ชื่อเพจและตำแหน่ง-->
+<div class="menuPage" id="aTemplePage" style="position: absolute;overflow: hidden;">
+
+    <!-- 设定本页滑动id ตั้งค่ารหัสเลื่อนของหน้านี้-->
+    <div id="aTempleScroller">
+
+        <!-- 本页头部布局 เค้าโครงส่วนหัวของหน้านี้-->
+        <div id="aTempleTop" class="pageTop">
+            <div id="aTempleTopBack" class="pageTopBack">
+                <img src="pic/back.svg" style="width:15px" />
+            </div>
+            <div id="aTempleTopTitle" class="">
+
+            </div>
+            <div id="aTempleBottom" class=""></div>
+        </div>
+
+        <!-- 本页显示部分布局 หน้านี้แสดงส่วนหนึ่งของเค้าโครง-->
+        <div id="aTempleBody" style="width: 100%;height: 1000px;">
+            <!-- 内容布局编写部分 ส่วนการเขียนเค้าโครงเนื้อหา -->
+        </div>
+
+    </div>
+</div>
+
+<script>
+
+    var aTempleObj = new aTemple();
+    aTempleObj.init();
+
+
+    function aTemple() {
+
+        //本页全局声明变量；
+        var something;
+
+        //对页面布局（包含scroll）和点击事件初始化
+        this.init = function () { }
+
+        //被调用后的执行函数方法
+        this.call = function () { }
+
+
+    }
+</script>
+
+
+
+
+```
+
+
+
+
+#### bStyle html structure
+
+
+```javascript
+
+<style type="text/css">
+    @import "css/home.css";
+    @import "css/shopping.css";
+
+    body {
+        color: #000000;
+        font-family: "Arial,Helvetica,sans-serif";
+    }
+
+    html,
+    body {
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+        overflow: hidden;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+    }
+
+
+    .bggAll {
+        background-image: url(https://static.meenmas.com/static/img/2023/03/754a69c1557f40f98973165e1109995e.png);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+
+
+    }
+
+
+    *:not([class*="icon"]):not(.fa):not(.fas):not(i) {
+        font-family: "arial", "苹方-简" !important;
+    }
+
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"] {
+        -webkit-appearance: none;
+    }
+
+    input::-webkit-input-placeholder {
+        font-size: 12px;
+        color: #999999;
+    }
+
+    ul {
+        list-style: none;
+        overflow: hidden;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    textarea {
+        -webkit-appearance: none;
+    }
+
+    .button {
+        border-radius: 0;
+    }
+
+    input:focus,
+    textarea:focus {
+        outline: none;
+    }
+
+    * {
+        -webkit-overflow-scrolling: touch;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    input {
+        -webkit-user-select: auto;
+        /*webkit浏览器*/
+    }
+
+    html {
+        -webkit-text-size-adjust: none;
+        -webkit-backface-visibility: hidden;
+    }
+
+    .flexCenter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+
+    .flexCenterL {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .flexCenterS {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .flexCenterR {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .flexAlignL {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .flexWordL {
+        display: flex;
+        align-items: flex-start;
+    }
+
+
+    .beflex {
+        display: flex;
+    }
+
+
+    .seColor {
+        width: 2.2em;
+        height: 2.2em;
+        border-radius: 50%;
+        display: inline-block;
+        border: 1px solid #888;
+    }
+
+    .opColor {
+        display: flex;
+        text-align: left;
+        padding: 6px 14px;
+        border: 1px solid #888;
+        margin: 10px 10px 5px 0;
+        border-radius: 5px;
+        font-size: 4pt;
+    }
+
+    .opgoColor {
+        display: flex;
+        text-align: left;
+        padding: 6px 14px;
+        border: 2px solid #ff6700;
+        margin: 10px 10px 5px 0;
+        border-radius: 5px;
+        font-size: 4pt;
+    }
+
+    .padA {
+        padding: 0 2%;
+    }
+
+    .padB {
+        padding: 0 5%;
+    }
+
+
+
+
+    .fbold {
+        font-weight: bold;
+    }
+
+    .fontA {
+        color: #FFFFFF;
+    }
+
+    .fontB {
+        color: #000000;
+    }
+
+    .fontC {
+        color: #929292;
+    }
+
+    .fontD {
+        color: #21BB7D;
+    }
+
+    .fontD1 {
+        color: #b2b2b2;
+    }
+
+
+
+    .fontE {
+        color: #F55D48;
+    }
+
+    .fontF {
+        color: #606060;
+    }
+
+    .fontG {
+        color: #BF8605;
+    }
+
+    .fontH {
+        color: #999999;
+    }
+
+    .fontI {
+        color: #f18c34;
+    }
+
+    .fontJ {
+        color: #F4F4F4;
+    }
+
+
+
+
+
+
+
+    .bgA {
+        background-color: #FFFFFF;
+    }
+
+    .bgA90 {
+        background-color: #FFFFFFE6;
+    }
+
+    .bgB {
+        background-color: #000000;
+    }
+
+    .bgC {
+        background-color: #21BB7D;
+    }
+
+    .sybgA {
+        background-color: #e5730a;
+    }
+
+
+    .bgCa {
+        background-color: #F55D48;
+    }
+
+    .bgD {
+        background-color: #F4F4F4;
+    }
+
+    .bgE {
+        background-color: #FF1F00;
+    }
+
+    .bgF {
+        background-color: #606060;
+    }
+
+    .bgG {
+        background-color: #cccccc;
+    }
+
+    .bgH {
+        background-color: rgb(33, 187, 125, 0.3)
+    }
+
+    .bgS {
+        background-color: #21BB7D19;
+    }
+
+    .bgJ1 {
+        background-color: #f8c10e;
+    }
+
+    .bgJ2 {
+        background-color: #f8500e;
+    }
+
+    .btnLogin {
+        background-color: #f18c34;
+    }
+
+    .btnBg {
+        background-color: #d8d8d8;
+    }
+
+
+
+
+
+    .hide {
+        display: none;
+    }
+
+    .show {
+        display: block;
+    }
+
+
+
+
+
+
+    /* 字体大小属性  */
+
+    .fz10 {
+        font-size: 10px;
+    }
+
+    .fz12 {
+        font-size: 0.75rem;
+    }
+
+    .fz13 {
+        font-size: 0.8125rem;
+    }
+
+    .fz14 {
+        font-size: 0.875rem;
+    }
+
+    .fz15 {
+        font-size: 0.9rem;
+    }
+
+    .fz16 {
+        font-size: 1rem;
+    }
+
+    .fz18 {
+        font-size: 1.125rem;
+    }
+
+    .fz20 {
+        font-size: 1.25rem;
+    }
+
+    .fz22 {
+        font-size: 1.375rem;
+    }
+
+    .fz24 {
+        font-size: 1.5rem;
+    }
+
+    .fz26 {
+        font-size: 1.625rem;
+    }
+
+    .fz28 {
+        font-size: 1.75rem;
+    }
+
+    .fz30 {
+        font-size: 1.875rem;
+    }
+
+    .fz32 {
+        font-size: 2rem;
+    }
+
+
+
+
+    /* 圆角属性 */
+
+    .br3 {
+        border-radius: 35px;
+    }
+
+    .br5 {
+        border-radius: 5px;
+    }
+
+    .br8 {
+        border-radius: 8px;
+    }
+
+    .br16 {
+        border-radius: 16px;
+    }
+
+    .br20 {
+        border-radius: 20px;
+    }
+
+    .br25 {
+        border-radius: 25px;
+    }
+
+    .br30 {
+        border-radius: 30px;
+    }
+
+
+    
+
+    .taL {
+        text-align: left;
+    }
+
+    .taR {
+        text-align: right;
+    }
+
+    .taC {
+        text-align: center;
+    }
+
+    .borderA {
+        border: 1px #000000 solid;
+    }
+
+    .borderB {
+        border: 1px #F4F4F4 solid;
+    }
+
+    .borderC {
+        border: 1px #BF8605 solid;
+    }
+
+    .syborder {
+        border: 2px #f55d48 solid;
+    }
+
+    .borderD {
+        border: 1px #dedede solid;
+    }
+
+    .btnA {
+        background-color: #21BB7D;
+        color: #FFFFFF;
+        text-align: center;
+    }
+
+    .btnB {
+        background-color: #999999;
+        color: #FFFFFF;
+        text-align: center;
+    }
+
+
+
+    .pageTop {
+        width: 100%;
+        height: 44px;
+        display: flex;
+        background-color: #FFFFFF;
+    }
+
+    .pageTopBack {
+        width: 15%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .pageTopTitle {
+        width: 70%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+    }
+
+    .pageTopBtn {
+        width: 15%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+
+
+<style type="text/css">
+    * {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        border: 0;
+    }
+
+    .all {
+        /* width: 500px; */
+        width: 100vw;
+        height: 150px;
+        /* padding: 7px; */
+        /* border: 1px solid #ccc; */
+        /* margin: 100px auto; */
+        position: relative;
+    }
+
+    .screen {
+        /* width: 500px; */
+        width: 100vw;
+        height: 150px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .screen li {
+        width: 100vw;
+        height: 150px;
+        overflow: hidden;
+        float: left;
+    }
+
+    .screen ul {
+        position: absolute;
+        left: 0;
+        top: 0px;
+        width: 3000px;
+    }
+
+    .all ol {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        line-height: 20px;
+        text-align: center;
+    }
+
+    .all ol li {
+        float: left;
+        width: 20px;
+        height: 20px;
+        background: #fff;
+        border: 1px solid #ccc;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+
+    .all ol li.current {
+        background: yellow;
+    }
+
+    #arr {
+        display: none;
+    }
+
+    #arr span {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        left: 5px;
+        top: 50%;
+        margin-top: -20px;
+        background: #000;
+        cursor: pointer;
+        line-height: 40px;
+        text-align: center;
+        font-weight: bold;
+        font-family: '黑体';
+        font-size: 30px;
+        color: #fff;
+        opacity: 0.3;
+        border: 1px solid #fff;
+    }
+
+
+    .fontStyle1 {
+
+        box-sizing: border-box;
+        word-break: break-all;
+        border: #21bb7d;
+        border-style: solid;
+        border-width: 1px;
+
+        border-radius: 5px;
+
+
+    }
+
+    .fontStyle2 {
+
+        box-sizing: border-box;
+        word-break: break-all;
+        border: #F55D48;
+        border-style: solid;
+        border-width: 1px;
+
+        border-radius: 5px;
+
+
+    }
+
+    #arr #right {
+        right: 5px;
+        left: auto;
+    }
+</style>
+
+
+
+
+
+```
+
+
+
+
 
 #### Index html structure
 
@@ -829,6 +1497,7 @@ Conponents comon for using all new page show
 
 ```
 ### Javascript Structure
+
 
 #### Index javascript structure
 
