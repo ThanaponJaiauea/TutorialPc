@@ -75,20 +75,36 @@ h，弹窗编写模式；(โหมดการเขียนหน้าต่
 
     a.ฟังก์การทำงานแบบ fix 
 
+    // index.html
     startApp();  ฟังก์ชัน สำหรับเริ่ม หน้าแอป
     setAllPageLang(); ฟังก์ชันสำหรับการตั้งค่าภาษาในแอป
     firstCheckToken(); ฟังก์ชันสำหรับการเช็ค token ครั้งแรกตอนแอปทำงาน
 
+    // login.html
     loginFun(); ใช้สำหรับ login
     registerObj.checkLoginStatusWithRefreshToken(); เช็คสถานะ ล็อคอิน
 
+    // register.html
     registerFun(); ใช้สำหรับ ลงทะเบียน
 
+    // main.html
     mainObj.refreshToken(); ฟังก์ชันรีเฟรชทุกๆ 30 นาที
     refreshTokenFun(); ฟังก์ชันรีเฟรช token ทุกๆ 30 นาที
     mainObj.checkAjaxResult(); ฟังก์ชัน เช็ค result.code จาก API  
-    logoutFun（）； ฟังก์ชัน token หมดอายุให้ logout
+    logoutFun()； ฟังก์ชัน token หมดอายุให้ logout
 
+
+    // widget.js
+    resObj() ; ฟังก์ชันแปลงโค๊ดทั้งหมดเข้า base 64 สำหรับน้ำไปสร้างไฟล์  build app
+    pageInit(); ฟังก์ชันเริ่มต้นในการตั้งค่าแต่ละหน้าแต่ละหน้า
+    headerInit(); ฟังก์ชันในการตั้งค่าหัวข้อแต่ละหน้า
+    pageShow(); ฟังก์ชันเรียกหน้าโชว์
+    pageUnShow(); ฟังก์ชันปิดหน้าโชว์
+    alert(); ฟังก์ขันโชว์ป๊อปอับ
+    loader(); ฟังก์ขันโชว์โหลด
+    messageBox(); ฟังก์ขันโชว์ป๊อปอับบอล๊ค ให้เลือกตกลง ยกเลิก เพื่อไปใช้งานฟังก์ชันอื่นต่อ
+    messagePage(); ฟังก์ขันโชว์ป๊อปอับหน้า 
+    checkIsAndroid(); ฟังก์ขันเช็คแอรนดอย
 
     b.ฟังก์การทำงานแบบไม่ fix
 
