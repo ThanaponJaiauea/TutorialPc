@@ -62,7 +62,19 @@ h，弹窗编写模式；(โหมดการเขียนหน้าต่
 
     a.ฟังก์การทำงานแบบ fix 
 
-    
+    startApp();  ฟังก์ชัน สำหรับเริ่ม หน้าแอป
+    setAllPageLang(); ฟังก์ชันสำหรับการตั้งค่าภาษาในแอป
+    firstCheckToken(); ฟังก์ชันสำหรับการเช็ค token ครั้งแรกตอนแอปทำงาน
+
+    loginFun(); ใช้สำหรับ login
+    registerObj.checkLoginStatusWithRefreshToken(); เช็คสถานะ ล็อคอิน
+
+    registerFun(); ใช้สำหรับ ลงทะเบียน
+
+    mainObj.refreshToken(); ฟังก์ชันรีเฟรชทุกๆ 30 นาที
+    refreshTokenFun(); ฟังก์ชันรีเฟรช token ทุกๆ 30 นาที
+    mainObj.checkAjaxResult(); ฟังก์ชัน เช็ค result.code จาก API  
+    logoutFun（）； ฟังก์ชัน token หมดอายุให้ logout
 
 
     b.ฟังก์การทำงานแบบไม่ fix
