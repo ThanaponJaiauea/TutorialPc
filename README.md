@@ -1,4 +1,9 @@
-<!-- Yojoies 前端开发工作手册 -->
+
+
+
+```javascript
+
+Yojoies 前端开发工作手册 (คู่มือการใช้งานฟรอนต์เอน)
 
 目录：
 一、前端开发准测：
@@ -46,9 +51,27 @@ h，弹窗编写模式；(โหมดการเขียนหน้าต่
 二、高级编写模式与规则：(รูปแบบและกฎการเขียนขั้นสูง)
 
 1、页面编写格式标准；(รูปแบบการเขียนหน้ามาตรฐาน)
+    a. token (วิธีการทำงาน เป็นกุญแจในการเปิดประตูสู่แอป)
+    b. var (การประกาศตัวแปรทุกอย่างในการทำงาน)
+    c. $("#xxx").click(function(){});(รูปแบบการเขียนแบบคลิกแบบนี้เท่านั้น!!!)
+    d. $(document).ready(function(){}); (การอ่านของการโหลด)
+    e. function xxx() {}; (วิธีการใช้งานฟังก์ชัน  xxx() ชื่อฟังก์ชัน จะใช้การเขียนแบบนี้หมดเลย)
+    f. this.xxx = function() {}; (รูปแบบการเรียกใช้ฟังก์ชัน)
+
+2.ฟังก์ชันการทำงาน
+
+    a.ฟังก์การทำงานแบบ fix 
+
+    
+
+
+    b.ฟังก์การทำงานแบบไม่ fix
 
 
 
+
+
+```
 
 
 
@@ -1594,10 +1617,11 @@ Conponents comon for using all new page show
     }
 
     function onBackPressed() {
-        console.log('========>');
+        console.log('========>');  
+
     }
 
-    function setDeviceId(mDeviceId, mPlatform) {
+    function setDeviceId(, mPlatform) {
         deviceId = mDeviceId;
         platform = mPlatform;
     }

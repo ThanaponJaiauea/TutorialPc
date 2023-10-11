@@ -132,7 +132,7 @@
                 var p_again = $("#r_password_again").val();
                 // var inviteCode = $("#inviteCode").val();
 
-                if ((mobile == '') || (p == '') || (p_again == '') || (name == '') ) {
+                if ((mobile == '') || (p == '') || (p_again == '') || (name == '')) {
                     msgPageObj.show(NSLang('register.fill'))
                 }
 
@@ -179,7 +179,6 @@
                     type: "post",
                     url: API_SERVER + "/v1/auth/signUp",
                     data: JSON.stringify(mData),
-                    contentType: "application/json",
                     dataType: "json",
                     async: true,
                     timeout: 100000,
@@ -206,7 +205,7 @@
                         loaderObj.unShow();
                         msgPageObj.show(NSLang('sys.serverError'))
                         cleanInput();
-                      
+
                     },
                     complete: function () {
                     }
