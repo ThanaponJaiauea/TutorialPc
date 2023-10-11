@@ -57,6 +57,19 @@ h，弹窗编写模式；(โหมดการเขียนหน้าต่
     d. $(document).ready(function(){}); (การอ่านของการโหลด)
     e. function xxx() {}; (วิธีการใช้งานฟังก์ชัน  xxx() ชื่อฟังก์ชัน จะใช้การเขียนแบบนี้หมดเลย)
     f. this.xxx = function() {}; (รูปแบบการเรียกใช้ฟังก์ชัน)
+    g. msgObj.show(NSLang('xxx.xxxxx'), function () { 
+        //  do code  something and logic when click confirm
+    })(รูปแบบแจ้งเตือนแบบมีปุ่ม ยืนยัน และ ยกเลิก)
+    h. msgPageObj.show(NSLang('xxx.xxxx'))(รูปแบบแจ้งเตือนทั้งหน้า)
+    i. msgObj.unShow();(ยกเลิกการโชว์ popup)
+    j. loaderObj.show();(โชว์การโหลดข้อมูล)
+    k. loaderObj.unShow(); (ยกเลิกการโชว์โหลดข้อมูล)
+    l. pageShow('idPage');(โชว์หน้าที่ต้องการ)
+    m. pageUnShow('idPage')(ปิดหน้าที่ต้องการ)
+    n. myScroll = new IScroll('#xxxx', { probeType: 1,mouseWheel: true });(ใช้เลื่อนหน้าแต่ละ ID)
+    o.$("#xxxxx").css({ "width": "100%""height": headH, "left": (-1.0) * w, "top": 0 });(กำหนด css ส่วนหัว)
+    p.$("#xxxxxx").css({ "width": w, "height": h - headH - menuH, "position": "absolute", "left": (-1.0) * w, "top": headH }) (กำหนด โครงของหน้า แต่ละ ID)
+
 
 2.ฟังก์ชันการทำงาน
 
