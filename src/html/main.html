@@ -159,6 +159,36 @@
             </div>
 
 
+            <div id="menu_edit" class="menuCss menuDiv">
+                <div class="menuCss_pic">
+
+                    <div class="menuOnClass" id="menuTutorial">
+                        <svg width="30" height="29" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M4.71447 15.4645C5.65215 14.5268 6.92392 14 8.25 14H16.25C17.5761 14 18.8479 14.5268 19.7855 15.4645C20.7232 16.4021 21.25 17.6739 21.25 19V21C21.25 21.5523 20.8023 22 20.25 22C19.6977 22 19.25 21.5523 19.25 21V19C19.25 18.2044 18.9339 17.4413 18.3713 16.8787C17.8087 16.3161 17.0456 16 16.25 16H8.25C7.45435 16 6.69129 16.3161 6.12868 16.8787C5.56607 17.4413 5.25 18.2044 5.25 19V21C5.25 21.5523 4.80228 22 4.25 22C3.69772 22 3.25 21.5523 3.25 21V19C3.25 17.6739 3.77678 16.4021 4.71447 15.4645Z"
+                                fill="var(--bg-foot)" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M12.25 4C10.5931 4 9.25 5.34315 9.25 7C9.25 8.65685 10.5931 10 12.25 10C13.9069 10 15.25 8.65685 15.25 7C15.25 5.34315 13.9069 4 12.25 4ZM7.25 7C7.25 4.23858 9.48858 2 12.25 2C15.0114 2 17.25 4.23858 17.25 7C17.25 9.76142 15.0114 12 12.25 12C9.48858 12 7.25 9.76142 7.25 7Z"
+                                fill="var(--bg-foot)" />
+                        </svg>
+                    </div>
+
+                    <div class= "menuOffClass" id="menuTutorial2" style="display: none;">
+                        <svg width="28" height="27" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M4.71447 15.4645C5.65215 14.5268 6.92392 14 8.25 14H16.25C17.5761 14 18.8479 14.5268 19.7855 15.4645C20.7232 16.4021 21.25 17.6739 21.25 19V21C21.25 21.5523 20.8023 22 20.25 22C19.6977 22 19.25 21.5523 19.25 21V19C19.25 18.2044 18.9339 17.4413 18.3713 16.8787C17.8087 16.3161 17.0456 16 16.25 16H8.25C7.45435 16 6.69129 16.3161 6.12868 16.8787C5.56607 17.4413 5.25 18.2044 5.25 19V21C5.25 21.5523 4.80228 22 4.25 22C3.69772 22 3.25 21.5523 3.25 21V19C3.25 17.6739 3.77678 16.4021 4.71447 15.4645Z"
+                                fill="#97979B" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M12.25 4C10.5931 4 9.25 5.34315 9.25 7C9.25 8.65685 10.5931 10 12.25 10C13.9069 10 15.25 8.65685 15.25 7C15.25 5.34315 13.9069 4 12.25 4ZM7.25 7C7.25 4.23858 9.48858 2 12.25 2C15.0114 2 17.25 4.23858 17.25 7C17.25 9.76142 15.0114 12 12.25 12C9.48858 12 7.25 9.76142 7.25 7Z"
+                                fill="#97979B" />
+                        </svg>  
+
+                    </div>
+                </div>
+                <span class="menuSpan" id="menuTutorialSpan">Tutorial</span>
+            </div>
+
+
         </div>
     </div>
 
@@ -199,6 +229,10 @@
                 mainObj.menusetting();
                 
             });
+            $("#menu_edit").click(function () {
+                mainObj.menuTutorial();
+                
+            });
 
             mResObj.showHtml("home.html", "body_main");
             mResObj.showHtml("trade.html", "body_main");
@@ -217,6 +251,7 @@
             $("#menuHomeSpan").css({ "color": "var(--bg-foot)", "font-size": "12px" });
             $("#menuTradeSpan").css({ "color": "#97979B", "font-size": "10px" });
             $("#menuwalletSpan").css({ "color": "#97979B", "font-size": "10px" });
+            $("#menuTutorialSpan").css({ "color": "#97979B", "font-size": "12px" });;
             $("#menuSettingSpan").css({ "color": "#97979B", "font-size": "10px" });
             // $("#body_main").css({ "background-image": "url(pic/new_bg.png)" });
             $("#main").css({ "background-color": "#80DEEA" });
@@ -233,6 +268,7 @@
             $("#menuTrade2").css({ "display": "none" });
             $("#menuHomeSpan").css({ "color": "#97979B", "font-size": "10px" });
             $("#menuTradeSpan").css({ "color": "var(--bg-foot)", "font-size": "12px" });
+            $("#menuTutorialSpan").css({ "color": "#97979B", "font-size": "12px" });;
             $("#menuwalletSpan").css({ "color": "#97979B", "font-size": "10px" });
             $("#menuSettingSpan").css({ "color": "#97979B", "font-size": "10px" });
             $("#main").css({ "background-color": "#F8BBD0" });
@@ -250,6 +286,7 @@
             $("#menuwallet2").css({ "display": "none" });
             $("#menuHomeSpan").css({ "color": "#97979B", "font-size": "10px" });
             $("#menuTradeSpan").css({ "color": "#97979B", "font-size": "10px" });
+            $("#menuTutorialSpan").css({ "color": "#97979B", "font-size": "12px" });;
             $("#menuwalletSpan").css({ "color": "var(--bg-foot)", "font-size": "12px" });
             $("#menuSettingSpan").css({ "color": "#97979B", "font-size": "10px" });
             $("#main").css({ "background-color": "#DCEDC8" });
@@ -269,6 +306,7 @@
             $("#menuHomeSpan").css({ "color": "#97979B", "font-size": "10px" });
             $("#menuTradeSpan").css({ "color": "#97979B", "font-size": "10px" });
             $("#menuwalletSpan").css({ "color": "#97979B", "font-size": "10px" });
+            $("#menuTutorialSpan").css({ "color": "#97979B", "font-size": "12px" });;
             $("#menuSettingSpan").css({ "color": "var(--bg-foot)", "font-size": "12px" });
             $("#main").css({ "background-color": "#CFD8DC" });
             
@@ -277,6 +315,25 @@
 
 
         }
+
+        this.menuTutorial = function () {
+            unShowMenuPage();
+            $(".menuOnClass").css({ "display": "none" });
+            $(".menuOffClass").css({ "display": "block" });
+            $("#menuTutorial").css({ "display": "block" });
+            $("#menuTutorial2").css({ "display": "none" });
+            $("#menuHomeSpan").css({ "color": "#97979B", "font-size": "10px" });
+            $("#menuTradeSpan").css({ "color": "#97979B", "font-size": "10px" });
+            $("#menuwalletSpan").css({ "color": "#97979B", "font-size": "10px" });
+            $("#menuSettingSpan").css({ "color": "#97979B", "font-size": "10px" });
+            $("#menuTutorialSpan").css({ "color": "var(--bg-foot)", "font-size": "12px" });
+            $("#main").css({ "background-color": "#CFD8DC" });
+            
+            tutorialObj.init()
+            tutorialObj.call();
+        }
+
+        
         
         this.checkIsLogin = function () {
             getLocalToken();
