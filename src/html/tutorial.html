@@ -1,130 +1,246 @@
-
 <style>
-    ul li:hover {
-        background-color: #04AA6D;
-    }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+  }
+
+  li {
+    padding: 4px;
+  }
+
+  li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+
+  li a.active {
+    background-color: #04aa6d;
+    color: white;
+  }
+
+  li a:hover:not(.active) {
+    background-color: #f1f1f1;
+    color: #000;
+  }
+
+  .dropbtn {
+    color: #000;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .dropdown {
+    width: 100%;
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .dropdown:hover .dropbtn {
+    background-color: #555;
+    color: white;
+  }
 </style>
 
-
-<div class="menuHeader" id="tutorialHeader"
-    style="position: absolute;display: flex;justify-content: center;align-items: center;font-size: 20px; font-weight: 700; background-color: transparent;">
-    <span id="tutorialHeaderBody">Tutorial</span>
+<div
+  class="menuHeader"
+  id="tutorialHeader"
+  style="
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 700;
+    background-color: transparent;
+  "
+>
+  <span id="tutorialHeaderBody">Tutorial</span>
 </div>
 
+<div
+  class="menuPage bg-my"
+  id="tutorialPage"
+  style="position: absolute; overflow: hidden; background-color: transparent"
+>
+  <div id="scrollerMy">
+    <div style="height: 600px; display: flex">
+      <nav id="toggleMenu" style="width: 15%">
+        <ul style="width: 100%; height: 100%">
+          <li class="dropdown">
+            <a class="dropbtn" href="#index">Index</a>
+            <div class="dropdown-content">
+              <a href="#">Index 1</a>
+              <a href="#">Index 2</a>
+              <a href="#">Index 3</a>
+            </div>
+          </li>
 
-<div class="menuPage bg-my" id="tutorialPage" style="position: absolute;overflow: hidden; background-color: transparent; ">
-    <div id="scrollerMy">
-        <div style="height: 600px;display: flex;">
+          <li class="dropdown">
+            <a class="dropbtn" href="#widget">Widget</a>
+            <div class="dropdown-content">
+              <a href="#">Widget 1</a>
+              <a href="#">Widget 2</a>
+              <a href="#">Widget 3</a>
+            </div>
+          </li>
 
-<nav id="toggleMenu" style="width: 15%;">
-    <ul style="display: flex; flex-direction: column; padding: 0; background: #ffff; gap: 10px;">
-        <a
-        href="javascript:void(0);"
-        onclick="myFunction()"
-        ><li id="index" style="border:1px solid red; padding: 4px; cursor: pointer; ">index</li></a>
+          <li class="dropdown">
+            <a class="dropbtn" href="#Main">Main</a>
+            <div class="dropdown-content">
+              <a href="#">Main 1</a>
+              <a href="#">Main 2</a>
+              <a href="#">Main 3</a>
+            </div>
+          </li>
 
-        <div id="myLinks" style="display: flex; flex-direction: column; gap: 10px;">
-            <a href="#news">News</a>
-            <a href="#contact">Contact</a>
-            <a href="#about">About</a>
-          </div>
+          <li class="dropdown">
+            <a class="dropbtn" href="#Login">Login</a>
+            <div class="dropdown-content">
+              <a href="#">Login 1</a>
+              <a href="#">Login 2</a>
+              <a href="#">Login 3</a>
+            </div>
+          </li>
 
-          
-        <a><li id="widget" style="border:1px solid red; padding: 4px; cursor: pointer; ">widget</li></a>
-        <a><li id="main" style="border:1px solid red; padding: 4px; cursor: pointer; ">main</li></a>
-        <a><li id="login" style="border:1px solid red; padding: 4px; cursor: pointer; ">login</li></a>
-        <a><li id="home" style="border:1px solid red; padding: 4px; cursor: pointer; ">home</li></a>
-    </ul>
-    
-    <!-- Modal -->
+          <li class="dropdown">
+            <a class="dropbtn" href="#Home">Home</a>
+            <div class="dropdown-content">
+              <a href="#">Home 1</a>
+              <a href="#">Home 2</a>
+              <a href="#">Home 3</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
 
-</nav>
-
-
-
-<!-- <div style="width: 80%; background: aqua;">
-    <p>concent</p>
-</div> -->
-        </div>
+      <div style="width: 85%; background-color: salmon">
+        <p>concent</p>
+      </div>
     </div>
+  </div>
+</div>
 
+<!-- Modal container -->
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('myModal')">&times;</span>
+    <p id="modalText">Modal Content Here</p>
+  </div>
 </div>
 
 <script>
-    var tutorialObj = new setting();
-    tutorialObj.init();
+  var tutorialObj = new setting();
+  tutorialObj.init();
 
-    var dataNavbar = [
+  var dataNavbar = [
+    {
+      id: 1,
+      name: "index",
+    },
+    {
+      id: 2,
+      name: "widget",
+    },
+    {
+      id: 3,
+      name: "main",
+    },
+    {
+      id: 4,
+      name: "login",
+    },
+    {
+      id: 5,
+      name: "home",
+    },
+  ];
+
+  console.log("dataNavbar:", dataNavbar);
+
+  function setting() {
+    var myScroll;
+
+    this.init = function () {
+      $("#tutorialHeader").css({
+        width: "100%",
+        height: headH,
+        left: -1.0 * w,
+        top: 0,
+      });
+      $("#tutorialPage").css({
+        width: w,
+        height: h - headH - menuH,
+        position: "absolute",
+        left: -1.0 * w,
+        top: headH,
+      });
+      myScroll = new IScroll("#tutorialPage", {
+        probeType: 1,
+        mouseWheel: true,
+      });
+      loadList();
+    };
+    this.call = function () {
+      $("#tutorialPage").transition(
         {
-        id:1,
-        name:"index"
-    },
-    {
-        id:2,
-        name:"widget"
-    },
-    {
-        id:3,
-        name:"main"
-    },
-    {
-        id:4,
-        name:"login"
-    },
-    {
-        id:5,
-        name:"home"
-    },
-]
+          x: w,
+        },
+        0
+      );
+      $("#tutorialHeader").transition(
+        {
+          x: w,
+        },
+        0
+      );
+      myScroll.refresh();
+    };
 
-console.log("dataNavbar:",dataNavbar);
+    function loadList() {
+      myScroll = new IScroll("#tutorialPage", {
+        probeType: 1,
+        mouseWheel: true,
+      });
 
-    function setting() {
+      myScroll.on("scroll", function () {
+        console.log("====>" + this.y);
+      });
 
-        var myScroll;
-
-        this.init = function () {
-
-            $("#tutorialHeader").css({ "width": "100%", "height": headH, "left": (-1.0) * w, "top": 0 });
-            $("#tutorialPage").css({ "width": w, "height": h - headH - menuH, "position": "absolute", "left": (-1.0) * w, "top": headH });
-            myScroll = new IScroll('#tutorialPage', { probeType: 1, mouseWheel: true });
-            loadList();
-
-        }
-        this.call = function () {
-
-            $("#tutorialPage").transition({
-                x: w
-            }, 0);
-            $("#tutorialHeader").transition({
-                x: w
-            }, 0);
-            myScroll.refresh()
-        }
-
-        function loadList() {
-            myScroll = new IScroll('#tutorialPage', { probeType: 1, mouseWheel: true });
-
-            myScroll.on('scroll', function () {
-                console.log("====>" + this.y);
-            });
-
-            myScroll.on('scrollEnd', function () {
-                console.log('====' + (new Date()));
-            });
-            myScroll.refresh();
-        }
+      myScroll.on("scrollEnd", function () {
+        console.log("====" + new Date());
+      });
+      myScroll.refresh();
     }
-
-    function myFunction() {
-  var x = document.getElementById("myLinks");
-  if (x.style.display === "block") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
   }
-}
-
-
-
 </script>
