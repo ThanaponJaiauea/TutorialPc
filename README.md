@@ -2001,8 +2001,6 @@ All components will be show in root in index.html
                 complete: function () {
                 }
             });
-
-
         }
 
        

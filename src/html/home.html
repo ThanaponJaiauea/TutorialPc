@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <div
   class="menuHeader"
   id="homeHeader"
@@ -9,25 +11,25 @@
     font-size: 20px;
     font-weight: 700;
     background: transparent;
-  "
->
+  ">
   <span id="homeHeaderBody">home</span>
 </div>
+
 <div
   class="menuPage bg-my"
   id="homePage"
-  style="position: absolute; overflow: hidden; background: transparent"
->
+  style="position: absolute; overflow: hidden; background: transparent">
   <div id="scrollerMy">
     <div style="height: 900px">home</div>
   </div>
 </div>
+
 <script>
-  var homeObj = new home();
-  homeObj.init();
+  var homeObj = new home()
+  homeObj.init()
 
   function home() {
-    var myScroll;
+    var myScroll
 
     this.init = function () {
       $("#homeHeader").css({
@@ -35,44 +37,44 @@
         height: headH,
         left: -1.0 * w,
         top: 0,
-      });
+      })
       $("#homePage").css({
         width: w,
         height: h - headH - menuH,
         position: "absolute",
         left: -1.0 * w,
         top: headH,
-      });
-      myScroll = new IScroll("#homePage", { probeType: 1, mouseWheel: true });
-      loadList();
-    };
+      })
+      myScroll = new IScroll("#homePage", {probeType: 1, mouseWheel: true})
+      loadList()
+    }
     this.call = function () {
       $("#homePage").transition(
         {
           x: w,
         },
         0
-      );
+      )
       $("#homeHeader").transition(
         {
           x: w,
         },
         0
-      );
-      myScroll.refresh();
-    };
+      )
+      myScroll.refresh()
+    }
 
     function loadList() {
-      myScroll = new IScroll("#homePage", { probeType: 1, mouseWheel: true });
+      myScroll = new IScroll("#homePage", {probeType: 1, mouseWheel: true})
 
       myScroll.on("scroll", function () {
-        console.log("====>" + this.y);
-      });
+        console.log("====>" + this.y)
+      })
 
       myScroll.on("scrollEnd", function () {
-        console.log("====" + new Date());
-      });
-      myScroll.refresh();
+        console.log("====" + new Date())
+      })
+      myScroll.refresh()
     }
   }
 </script>
