@@ -9,7 +9,9 @@
 
   li {
     padding: 4px;
+    cursor: pointer;
   }
+  
 
   li a {
     display: block;
@@ -23,10 +25,10 @@
     color: white;
   }
 
-  li a:hover:not(.active) {
-    background-color: #f1f1f1;
-    color: #000;
-  }
+  li:not(.active):hover {
+  background-color: #11e094;
+  color: #000;
+}
 
   .dropbtn {
     color: #000;
@@ -36,40 +38,18 @@
     cursor: pointer;
   }
 
-  .dropdown {
-    width: 100%;
-    position: relative;
-    display: inline-block;
-  }
+  
+  .toggles {
+  display: none; 
+}
 
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-  }
+.toggleWidget {
+  display: none; 
+}
 
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-
-  .dropdown-content a:hover {
-    background-color: #f1f1f1;
-  }
-
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-
-  .dropdown:hover .dropbtn {
-    background-color: #555;
-    color: white;
-  }
+  .active {
+  background-color: #04AA6D;
+}
 </style>
 
 <div
@@ -83,72 +63,1034 @@
     font-size: 20px;
     font-weight: 700;
     background-color: transparent;
+    margin-top: 10px;
   "
 >
-  <span id="tutorialHeaderBody">Tutorial</span>
+  <h1 id="tutorialHeaderBody">Tutorial</h1>
 </div>
 
 <div
   class="menuPage bg-my"
   id="tutorialPage"
   style="position: absolute; overflow: hidden; background-color: transparent"
->
-  <div id="scrollerMy">
-    <div style="height: 600px; display: flex">
-      <nav id="toggleMenu" style="width: 15%">
+>  
+  <div id="scrollerMy"  style="height:100%; display: flex">
+      <nav id="toggleMenu" style="width: 15%; height: 100%;overflow-y: auto;background-color: #f1f1f1;">
         <ul style="width: 100%; height: 100%">
-          <li class="dropdown">
-            <a class="dropbtn" href="#index">Index</a>
-            <div class="dropdown-content">
-              <a href="#">Index 1</a>
-              <a href="#">Index 2</a>
-              <a href="#">Index 3</a>
-            </div>
-          </li>
+          <!-- Index -->
+          <div>
+            <div style="padding: 2px;"><h1>Index</h1></div>
 
-          <li class="dropdown">
-            <a class="dropbtn" href="#widget">Widget</a>
-            <div class="dropdown-content">
-              <a href="#">Widget 1</a>
-              <a href="#">Widget 2</a>
-              <a href="#">Widget 3</a>
-            </div>
-          </li>
+            <li id="Head" style="color: #000;padding: 8px 16px; text-decoration: none;">
+              Head
+            </li>
 
-          <li class="dropdown">
-            <a class="dropbtn" href="#Main">Main</a>
-            <div class="dropdown-content">
-              <a href="#">Main 1</a>
-              <a href="#">Main 2</a>
-              <a href="#">Main 3</a>
-            </div>
-          </li>
+            <li 
+            onclick="toggleScript()"
+            id="script" style="color: #000;padding: 8px 16px; text-decoration: none;">
+              Script
+            </li>
 
-          <li class="dropdown">
-            <a class="dropbtn" href="#Login">Login</a>
-            <div class="dropdown-content">
-              <a href="#">Login 1</a>
-              <a href="#">Login 2</a>
-              <a href="#">Login 3</a>
-            </div>
-          </li>
+            <div id="toggleOpen" class="toggles" style="padding-left: 10px;">
+              <li id="varVariable"  style="color: #000;padding: 8px 16px; text-decoration: none; font-size: 14px;">
+                VAR variable
+              </li>
 
-          <li class="dropdown">
-            <a class="dropbtn" href="#Home">Home</a>
-            <div class="dropdown-content">
-              <a href="#">Home 1</a>
-              <a href="#">Home 2</a>
-              <a href="#">Home 3</a>
+              <li id="api" style="color: #000;padding: 8px 16px; text-decoration: none; font-size: 14px;">
+                API
+              </li>
+
+              <li id="StartApp" style="color: #000;padding: 8px 16px; text-decoration: none; font-size: 14px;">
+                StartApp()
+              </li>
+  
+              <li id="SetAllPageLang" style="color: #000;padding: 8px 16px;text-decoration: none; font-size: 14px;">
+                SetAllPageLang()
+              </li>
+  
+              <li id="firstCheckToken" style="color: #000;padding: 8px 16px;text-decoration: none; font-size: 14px;">
+                firstCheckToken()
+              </li>
+
+
+              <li
+              onclick="toggleWidget()"
+              id="widget" style="color: #000;padding: 8px 16px;text-decoration: none; font-size: 16px;font: bold;">
+                <h4 style="padding: 0; box-sizing: border-box;margin: 0;">Widget</h4>
+              </li>
+
+              <div id="toggleOpenWidget" class="toggleWidget" style="padding-left: 10px;">
+                <li id="resObj" style="color: #000;padding: 8px 16px; text-decoration: none; font-size: 14px;">
+                  resObj()
+                </li>
+
+                <li id="pageInit" style="color: #000;padding: 8px 16px; text-decoration: none; font-size: 14px;">
+                  pageInit()
+                </li>
+
+                <li id="pageShow" style="color: #000;padding: 8px 16px; text-decoration: none; font-size: 14px;">
+                  pageShow()
+                </li>
+
+                <li id="pageUnShow" style="color: #000;padding: 8px 16px; text-decoration: none; font-size: 14px;">
+                  pageUnShow()
+                </li>
+
+                <li id="alert" style="color: #000;padding: 8px 16px; text-decoration: none; font-size: 14px;">
+                  alert()
+                </li>
+
+                <li id="loader" style="color: #000;padding: 8px 16px; text-decoration: none; font-size: 14px;">
+                  loader();
+                </li>
+
+                <li id="messageBox" style="color: #000;padding: 8px 16px; text-decoration: none; font-size: 14px;">
+                  messageBox();
+                </li>
+
+                <li id="messagePage" style="color: #000;padding: 8px 16px; text-decoration: none; font-size: 14px;">
+                  messagePage();
+                </li>
+
+                <li id="checkIsAndroid" style="color: #000;padding: 8px 16px; text-decoration: none; font-size: 14px;">
+                  checkIsAndroid();
+                </li>
+
+                </div>
+              </div>
+          </div>
+
+        <!-- login -->
+          <div style="width: 100%;border: 1px;">
+            <div style="padding: 2px;"><h1>login</h1></div>
+
+            <li id="loginFun" style="color: #000;padding: 8px 16px; text-decoration: none;">
+              loginFun()
+            </li>
+
+            <li id="checkLoginStatusWithRefreshToken" style="color: #000;padding: 8px 16px;text-decoration: none;">
+          registerObj.checkLogin()
+            </li>
+          </div>
+
+           <!-- register -->
+           <div style="width: 100%;border: 1px;">
+            <div style="padding: 2px;"><h1>register</h1></div>
+
+            <li id="registerFun" style="color: #000;padding: 8px 16px; text-decoration: none;">
+              registerFun()
+            </li>
+          </div>
+
+            <!-- main -->
+            <div style="width: 100%;border: 1px;">
+              <div style="padding: 2px;"><h1>main</h1></div>
+  
+              <li id="refreshToken" style="color: #000;padding: 8px 16px; text-decoration: none;">
+                mainObj.refreshToken()
+              </li>
             </div>
-          </li>
+          
         </ul>
       </nav>
 
-      <div style="width: 85%; background-color: salmon">
-        <p>concent</p>
+          <!-- Head Content-->
+        <div id="HeadContent" class="content"
+          style="width: 85%;display: none;  display: flex; flex-direction: column;padding-left: 20px">
+            <div>
+              <div>
+                <h1 style="font-size:30px;">Index</h1>
+              </div>
+  
+              <div>
+                <h3>Head (หัวข้อ ใช้ฟอแมทนี้ และไม่มีplug in)</h3>
+  
+                <div style="width: 80%; display: flex; flex-direction:column;background: #E7E9EB;padding: 10px; border-radius: 10px;"> 
+                <div>
+                 <h2> Example</h2>
+                </div>
+  
+                <div style="width: 100%; height: 350px; overflow-y: auto; white-space: pre-wrap; background: white;">
+                  <p id="title"></p>
+                </div>
+              
+                </div>
+              </div>
+            </div>
+        </div>
+
+      <!-- startApp Content-->
+      <div id="varVariableContent" class="content"
+      style="width: 85%;display: none;  display: flex; flex-direction: column;padding-left: 20px">
+        <div>
+          <div>
+            <h1 style="font-size:30px;">Index</h1>
+          </div>
+      
+          <div>
+            <h3>var Variable (การประกาศตัวแปรทุกอย่างในการทำงาน)</h3>
+      
+            <div style="width: 80%; display: flex; flex-direction:column;background: #E7E9EB;padding: 10px; border-radius: 10px;"> 
+            <div>
+             <h2> Example</h2>
+            </div>
+      
+            <div style="width: 100%; height: 350px; white-space: pre-wrap; background: white;">
+             <p style="font-size: 18px;">     
+              var token = null;
+              var deviceId = null;
+              var platform = null;
+              var refreshTokenTimer = null;
+              var heartBeatTimer = null;
+              var heartBeatTimeStamp = 0;
+          </p>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- api  Content  -->
+      <div id="apiContent" class="content"
+      style="width: 85%;display: none;  display: flex; flex-direction: column;padding-left: 20px">
+        <div>
+          <div>
+            <h1 style="font-size:30px;">Index</h1>
+          </div>
+      
+          <div>
+            <h3>API path</h3>
+      
+            <div style="width: 80%; display: flex; flex-direction:column;background: #E7E9EB;padding: 10px; border-radius: 10px;"> 
+            <div>
+             <h2> Example</h2>
+            </div>
+      
+            <div style="width: 100%; height: 350px; white-space: pre-wrap; background: white;">
+             <p style="font-size: 18px;">     
+              var API_SERVER = "API path";
+
+              var API_SERVER = "http://18.143.194.72/solar";
+              var WS_SERVER = "ws://18.142.136.157/api";
+          </p>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- startApp Content-->
+      <div id="startAppContent" class="content"
+      style="width: 85%;display: none;  display: flex; flex-direction: column;padding-left: 20px">
+      <div>
+        <div>
+            <h1 style="font-size:30px;">Index</h1>
+          </div>
+      
+          <div>
+            <h3>startApp (ฟังก์ชัน สำหรับเริ่ม หน้าแอป)</h3>
+      
+            <div style="width: 80%; display: flex; flex-direction:column;background: #E7E9EB;padding: 10px; border-radius: 10px;"> 
+            <div>
+             <h2> Example</h2>
+            </div>
+      
+            <div style="width: 100%; height: 350px; overflow-y: auto; white-space: pre-wrap; background: white;">
+             <p> function startApp() {
+
+              mResObj.showHtml("lang.html", "root");
+              mResObj.showHtml("main.html", "root");
+              // mResObj.showHtml("start.html", "root");
+              mResObj.showHtml("login.html", "root");
+              mResObj.showHtml("register.html", "root");  
+              mResObj.showHtml("tutorial.html", "root");  
+              mainObj.checkIsLogin();
+      
+              setAllPageLang()
+              firstStartFun();
+          }</p>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- setAllPageLang Content-->
+    <div id="setAllPageLangContent" class="content"
+    style="width: 85%;display: none;  display: flex; flex-direction: column;padding-left: 20px">
+      <div>
+        <div>
+          <h1 style="font-size:30px;">Index</h1>
+        </div>
+    
+        <div>
+          <h3>setAllPageLang (ฟังก์ชันสำหรับการตั้งค่าภาษาในแอป)</h3>
+    
+          <div style="width: 80%; display: flex; flex-direction:column;background: #E7E9EB;padding: 10px; border-radius: 10px;"> 
+          <div>
+           <h2> Example</h2>
+          </div>
+    
+          <div style="width: 100%; height: 350px; overflow-y: auto; white-space: pre-wrap; background: white;">
+           <p>
+            // เรียกฟังก์ชังฟันเปลี่ยนภาษา
+            function setAllPageLang() {
+                setAllUILang('getstart')
+                setAllUILang("login")
+                setAllUILang("register")
+                setAllUILang("main")
+        
+            }
+           </p>
+          </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+
+    <!-- firstCheckToken Content-->
+    <div id="firstCheckTokenContent" class="content"
+      style="width: 85%;display: none;  display: flex; flex-direction: column;padding-left: 20px">
+      <div>
+        <div>
+          <h1 style="font-size:30px;">Index</h1>
+        </div>
+    
+        <div>
+          <h3>firstCheckToken (ฟังก์ชันสำหรับการเช็ค token ครั้งแรกตอนแอปทำงาน)</h3>
+    
+          <div style="width: 80%; display: flex; flex-direction:column;background: #E7E9EB;padding: 10px; border-radius: 10px;"> 
+          <div>
+           <h2> Example</h2>
+          </div>
+    
+          <div style="width: 100%; height: 350px; overflow-y: auto; white-space: pre-wrap; background: white;">
+           <p>
+            function firstCheckToken() {
+              if (token == null) {
+                  pageShow("loginPage");
+                  return;
+              }
+      
+              var mData = { "token": token.refresh };
+      
+              $.ajax({
+                  type: "post",
+                  url: API_SERVER + "/v1/auth/refresh",
+                  data: JSON.stringify(mData),
+                  contentType: "application/json",
+                  dataType: "json",
+                  async: true,
+                  timeout: 100000,
+                  beforeSend: function (xmlhttprequest) {
+                  },
+                  success: function (data) {
+                      if (data.code == 0) {
+                          var tokenObj = data.result;
+                          localStorage.setItem('token', JSON.stringify(tokenObj));
+                          getLocalToken();
+                      } else {
+                          if (data.code == 4002) {
+                              pageShow("loginPage");
+                          }
+                      }
+                      mainObj.menuhome();
+                  },
+                  error: function (xmlhttprequest, error) {
+                      console.log(error);
+                  },
+                  complete: function () {
+                  }
+              });
+          }
+           </p>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- widget Content -->
+    <div id="widgetContent" class="content"
+      style="width: 85%;display: none;  display: flex; flex-direction: column;padding-left: 20px">
+      <div>
+        <div>
+          <h1 style="font-size:30px;">Index</h1>
+        </div>
+    
+        <div>
+          <h3>Widget VAR & function ที่สามรถใช้งานร่วมกันได้</h3>
+    
+          <div style="width: 80%; display: flex; flex-direction:column;background: #E7E9EB;padding: 10px; border-radius: 10px;"> 
+          <div>
+           <h2> Example</h2>
+          </div>
+    
+          <div style="width: 100%; height: 350px; overflow-y: auto; white-space: pre-wrap; background: white;">
+           <p>
+            resObj() ; ฟังก์ชันแปลงโค๊ดทั้งหมดเข้า base 64 สำหรับน้ำไปสร้างไฟล์  build app
+            pageInit(); ฟังก์ชันเริ่มต้นในการตั้งค่าแต่ละหน้าแต่ละหน้า
+            headerInit(); ฟังก์ชันในการตั้งค่าหัวข้อแต่ละหน้า
+            pageShow(); ฟังก์ชันเรียกหน้าโชว์
+            pageUnShow(); ฟังก์ชันปิดหน้าโชว์
+            alert(); ฟังก์ขันโชว์ป๊อปอับ
+            loader(); ฟังก์ขันโชว์โหลด
+            messageBox(); ฟังก์ขันโชว์ป๊อปอับบอล๊ค ให้เลือกตกลง ยกเลิก เพื่อไปใช้งานฟังก์ชันอื่นต่อ
+            messagePage(); ฟังก์ขันโชว์ป๊อปอับหน้า 
+            checkIsAndroid(); ฟังก์ขันเช็คแอรนดอย
+
+            b.ฟังก์การทำงานแบบไม่ fix
+            // lang.html
+            setAllUILang(); ฟังก์ขันตั้งค่าภาษาในแต่ละหน้า
+            getStatusCode(); ฟังก์ขันตั้งค่าภาษาในแต่ละหน้าจาก API code
+           </p>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- resObj Content-->
+    <div id="resObjContent" class="content"
+      style="width: 85%;display: none;  display: flex; flex-direction: column;padding-left: 20px">
+      <div>
+        <div>
+          <h1 style="font-size:30px;">Index</h1>
+        </div>
+    
+        <div>
+          <h3>resObj()  (ฟังก์ชันแปลงโค๊ดทั้งหมดเข้า base 64 สำหรับนำไปสร้างไฟล์  build app)</h3>
+    
+          <div style="width: 80%; display: flex; flex-direction:column;background: #E7E9EB;padding: 10px; border-radius: 10px;"> 
+          <div>
+           <h2> Example</h2>
+          </div>
+    
+          <div style="width: 100%; height: 350px; overflow-y: auto; white-space: pre-wrap; background: white;">
+           <p>
+            // แปลงไฟล์ html to json
+function resObj(mResUrl) {
+
+    var resUrl = "res.json";
+    var resData = null;
+    var base64 = new Base64();
+
+    var successFun = null;
+    var errorFun = null;
+
+    this.init = function () {
+        if (mResUrl) {
+            resUrl = mResUrl;
+        }
+    }
+    this.setSuccessFun = function (mSuccessFun) {
+        if (mSuccessFun) {
+            successFun = mSuccessFun;
+        }
+    }
+    this.setErrorFun = function (mErrorFun) {
+        if (mErrorFun) {
+            errorFun = mErrorFun;
+        }
+    }
+    this.load = function () {
+
+        $.ajax({
+            type: "get",
+            url: resUrl,
+            contentType: "charset=utf-8",
+            data: "",
+            async: true,
+            timeout: 60000,
+            beforeSend: function (xmlhttprequest) {
+
+            },
+            success: function (data) {
+                //console.log(data);
+                resData = data;
+                if (successFun) {
+                    successFun();
+                }
+            },
+            error: function (xmlhttprequest, error) {
+                console.log('error===>' + resUrl + "error===>" + error + ", xmlhttprequest===>" + xmlhttprequest);
+                if (errorFun) {
+                    errorFun();
+                }
+            },
+            complete: function () {
+            }
+        });
+
+    }
+    this.getResData = function () {
+        return resData;
+    }
+    this.showHtml = function (path, divId) {
+        if (resData != null) {
+            var resStr = String(resData[path]);
+            $("#" + divId).append(base64.decode(resStr));
+        }
+    }
+
+}
+           </p>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- pageShow Content -->
+    <div id="pageShowContent" class="content"
+      style="width: 85%;display: none;  display: flex; flex-direction: column;padding-left: 20px">
+      <div>
+        <div>
+          <h1 style="font-size:30px;">Index</h1>
+        </div>
+    
+        <div>
+          <h3>pageShow(); (ฟังก์ชันเรียกหน้าโชว)</h3>
+    
+          <div style="width: 80%; display: flex; flex-direction:column;background: #E7E9EB;padding: 10px; border-radius: 10px;"> 
+          <div>
+           <h2> Example</h2>
+          </div>
+    
+          <div style="width: 100%; height: 350px; overflow-y: auto; white-space: pre-wrap; background: white;">
+           <p>
+            function openAgreement() {
+              pageShow('agreementPage');
+          }
+           </p>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <!-- pageUnShow Content --> 
+      <div id="pageUnShowContent" class="content"
+      style="width: 85%;display: none;  display: flex; flex-direction: column;padding-left: 20px">
+      <div>
+        <div>
+          <h1 style="font-size:30px;">Index</h1>
+        </div>
+    
+        <div>
+          <h3>pageUnShow(); (ฟังก์ชันปิดหน้าโชว)</h3>
+    
+          <div style="width: 80%; display: flex; flex-direction:column;background: #E7E9EB;padding: 10px; border-radius: 10px;"> 
+          <div>
+           <h2> Example</h2>
+          </div>
+    
+          <div style="width: 100%; height: 350px; overflow-y: auto; white-space: pre-wrap; background: white;">
+           <p>
+            if (isLogin) {
+              pageUnShow("loginPage");
+              pageUnShow("startPage");
+              mainObj.menuhome();
+          } else {
+              pageShow("startPage");
+          }
+           </p>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <!-- alert Content -->  
+      <div id="alertContent" class="content"
+      style="width: 85%;display: none;  display: flex; flex-direction: column;padding-left: 20px">
+      <div>
+        <div>
+          <h1 style="font-size:30px;">Index</h1>
+        </div>
+    
+        <div>
+          <h3>alert(); ฟังก์ขันโชว์ป๊อปอับ</h3>
+    
+          <div style="width: 80%; display: flex; flex-direction:column;background: #E7E9EB;padding: 10px; border-radius: 10px;"> 
+          <div>
+           <h2> Example</h2>
+          </div>
+    
+          <div style="width: 100%; height: 350px; overflow-y: auto; white-space: pre-wrap; background: white;">
+           <p>
+            var alertObj = new alert();
+
+            function alert() {
+              // ประกาศค่าเรื่ม
+              this.init = function () {
+                  $("#alert").css({ "display": "none", "width": $(window).width(), "height": $(window).height() });
+                  $("#alert").click(function () {
+                      $("#alert").css({ "display": "none" });
+                  });
+              }
+              // โชว์ ป๊อปอัพ
+              this.show = function (msg) {
+                  $("#alertMsg").html(msg);
+                  $("#alert").css({ "display": "flex" });
+              }
+          
+              // ปิดป๊อปอัพ
+              this.unShow = function () {
+                  $("#alert").css({ "display": "none" });
+              }
+              // ปิดแจ้งเตือน
+              function unShowAlert() {
+                  $("#alert").css({ "display": "none" });
+                  $("#alertMsg").html("");
+              }
+          }
+           </p>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+        <!-- loader Content -->  
+        <div id="loaderContent" class="content"
+        style="width: 85%;display: none;  display: flex; flex-direction: column;padding-left: 20px">
+        <div>
+          <div>
+            <h1 style="font-size:30px;">Index</h1>
+          </div>
+      
+          <div>
+            <h3> loader(); (ฟังก์ขันโชว์โหลด)</h3>
+      
+            <div style="width: 80%; display: flex; flex-direction:column;background: #E7E9EB;padding: 10px; border-radius: 10px;"> 
+            <div>
+             <h2> Example</h2>
+            </div>
+      
+            <div style="width: 100%; height: 350px; overflow-y: auto; white-space: pre-wrap; background: white;">
+             <p>
+              var loaderObj = new loader();
+
+              /ป๊อปอัพตัว loader
+  function loader() {
+      var opts = {
+          lines: 16, // The number of lines to draw
+          length: 20, // The length of each line
+          width: 13, // The line thickness
+          radius: 37, // The radius of the inner circle
+          scale: 0.3, // Scales overall size of the spinner
+          corners: 1, // Corner roundness (0..1)
+          speed: 0.5, // Rounds per second
+          rotate: 0, // The rotation offset
+          animation: 'spinner-line-fade-default', // The CSS animation name for the lines
+          direction: 1, // 1: clockwise, -1: counterclockwise
+          color: '#ffffff', // CSS color or array of colors
+          fadeColor: 'transparent', // CSS color or array of colors
+          top: '50%', // Top position relative to parent
+          left: '50%', // Left position relative to parent
+          shadow: '0 0 1px transparent', // Box-shadow for the lines
+          zIndex: 2000000000, // The z-index (defaults to 2e9)
+          className: 'spinner', // The CSS class to assign to the spinner
+          position: 'absolute', // Element positioning
+      };
+      var spiner = null;
+      this.init = function () {
+           // ประกาศค่าเรื่ม
+          $("#loader").css({ "width": $(window).width(), "height": $(window).height(), "display": "none" });
+          spiner = new Spinner(opts);
+      }
+      // โชว์ โหลด
+      this.show = function () {
+          $("#loader").css({ "display": "block" });
+          spiner.spin(document.getElementById("loader"));
+      }
+      // ปิด โหลด
+      this.unShow = function () {
+          spiner.spin();
+          $("#loader").css({ "display": "none" });
+    }
+}
+             </p>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+          <!-- messageBox Content -->  
+          <div id="messageBoxContent" class="content"
+          style="width: 85%;display: none;  display: flex; flex-direction: column;padding-left: 20px">
+          <div>
+            <div>
+              <h1 style="font-size:30px;">Index</h1>
+            </div>
+        
+            <div>
+              <h3>messageBox(); (ฟังก์ขันโชว์ป๊อปอับบอล๊ค ให้เลือกตกลง ยกเลิก เพื่อไปใช้งานฟังก์ชันอื่นต่อ)</h3>
+        
+              <div style="width: 80%; display: flex; flex-direction:column;background: #E7E9EB;padding: 10px; border-radius: 10px;"> 
+              <div>
+               <h2> Example</h2>
+              </div>
+        
+              <div style="width: 100%; height: 350px; overflow-y: auto; white-space: pre-wrap; background: white;">
+               <p>
+                var msgObj = new messageBox();
+  
+                // ป๊อปอัพกล่อง message 
+                function messageBox() {
+                      // ประกาศค่าเรื่ม
+                    this.init = function () {
+                        $("#messageBox").css({ "display": "none", "width": $(window).width(), "height": $(window).height() });
+                        $("#messageBoxBg").css({ "width": $(window).width(), "height": $(window).height() });
+                        $("#messageBoxBodyBg").css({ "width": $(window).width(), "height": $(window).height() });
+                        $("#messageBoxBody").css({ "width": $(window).width() * 0.75, "height": "200px" });
+                    }
+                      // โชว์ป็อบอัพ
+                    this.show = function (msgContent, okFun, cancelFun) {
+                
+                        $("#messageBox").css({ "display": "flex", "left": 0 });
+                        $("#msgContent").html(msgContent);
+                        $("#msgBtnCancel").unbind();
+                        $("#msgBtnOK").unbind();
+                        $("#msgBtnOK").click(function () {
+                            if (okFun) {
+                                okFun();
+                            }
+                        });
+                        $("#msgBtnCancel").click(function () {
+                            if (cancelFun) {
+                                cancelFun();
+                            }
+                            msgObj.unShow();
+                        });
+                    }
+                      // ปิดป็อบอัพ
+                    this.unShow = function () {
+                        $("#messageBox").css({ "display": "none" });
+                    }
+                }
+               </p>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+           <!-- messagePage Content -->  
+           <div id="messagePageContent" class="content"
+           style="width: 85%;display: none;  display: flex; flex-direction: column;padding-left: 20px">
+           <div>
+             <div>
+               <h1 style="font-size:30px;">Index</h1>
+             </div>
+         
+             <div>
+               <h3>messagePage(); ฟังก์ขันโชว์ป๊อปอับหน้า</h3>
+         
+               <div style="width: 80%; display: flex; flex-direction:column;background: #E7E9EB;padding: 10px; border-radius: 10px;"> 
+               <div>
+                <h2> Example</h2>
+               </div>
+         
+               <div style="width: 100%; height: 350px; overflow-y: auto; white-space: pre-wrap; background: white;">
+                <p>
+                  var msgPageObj = new messagePage();
+   
+                  // ป๊อปอัพหน้า message 
+                  function messagePage() {
+                    // ประกาศค่าเรื่ม
+                      this.init = function () {
+                          $("#messagePage").css({ "display": "none", "width": $(window).width(), "height": $(window).height() });
+                          $("#messagePageBg").css({ "width": $(window).width(), "height": $(window).height() });
+                          $("#messagePageBodyBg").css({ "width": $(window).width(), "height": $(window).height() });
+                          $("#messagePageBody").css({ "width": $(window).width() * 0.75, "height": "200px" });
+                      }
+                        // โชว์ป็อบอัพ
+                      this.show = function (msgContent, cancelFun) {
+                  
+                          $("#messagePage").css({ "display": "flex", "left": 0 });
+                          $("#msgPageContent").html(msgContent);
+                          $("#msgPageBtnClose").unbind();
+                          $("#msgPageBtnClose").click(function () {
+                              if (cancelFun) {
+                                  cancelFun();
+                              }
+                              msgPageObj.unShow();
+                          });
+                          $("#messagePageBodyBg").unbind();
+                          $("#messagePageBodyBg").click(function () {
+                              if (cancelFun) {
+                                  cancelFun();
+                              }
+                              msgPageObj.unShow();
+                          });
+                          $("#messagePageBody").unbind();
+                          $("#messagePageBody").click(function (event) {
+                              event.stopPropagation();
+                          });
+                      }
+                        // ปิดป็อบอัพ
+                      this.unShow = function () {
+                          $("#messagePage").css({ "display": "none" });
+                      }
+                  }
+                </p>
+               </div>
+               </div>
+             </div>
+           </div>
+         </div>
+
+            <!-- checkIsAndroid Content -->  
+            <div id="checkIsAndroidContent" class="content"
+                style="width: 85%;display: none;  display: flex; flex-direction: column;padding-left: 20px">
+                <div>
+                  <div>
+                    <h1 style="font-size:30px;">Index</h1>
+                  </div>
+              
+                  <div>
+                    <h3>checkIsAndroid(); ฟังก์ขันเช็คแอรนดอย</h3>
+              
+                    <div style="width: 80%; display: flex; flex-direction:column;background: #E7E9EB;padding: 10px; border-radius: 10px;"> 
+                    <div>
+                     <h2> Example</h2>
+                    </div>
+              
+                    <div style="width: 100%; height: 350px; overflow-y: auto; white-space: pre-wrap; background: white;">
+                     <p>
+                      function checkIsAndroid() {
+                        var u = navigator.userAgent;
+                        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+                        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+                    
+                        if (isAndroid) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                     </p>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+          </div>
+
+        <!-- pageInit Content -->
+        <div id="pageInitContent" class="content"
+        style="width: 85%;display: none;  display: flex; flex-direction: column;padding-left: 20px">
+        <div>
+          <div>
+            <h1 style="font-size:30px;">Index</h1>
+          </div>
+      
+          <div>
+            <h3> pageInit(); (ฟังก์ชันเริ่มต้นในการตั้งค่าแต่ละหน้าแต่ละหน้า)</h3>
+      
+            <div style="width: 80%; display: flex; flex-direction:column;background: #E7E9EB;padding: 10px; border-radius: 10px;"> 
+            <div>
+             <h2> Example</h2>
+            </div>
+      
+            <div style="width: 100%; height: 350px; overflow-y: auto; white-space: pre-wrap; background: white;">
+             <p>
+              function pageInit(pageId) {
+                $("#" + pageId).css({ "width": w, "height": h, "position": "absolute", "left": (-1.0) * w, "top": 0});
+            }
+             </p>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <!-- loginFun Content-->
+        <div id="loginFunContent" class="content"
+        style="width: 85%;display: none;  display: flex; flex-direction: column;padding-left: 20px">
+        <div>
+          <div>
+              <h1 style="font-size:30px;">Index</h1>
+            </div>
+        
+            <div>
+                <h3>loginFun(); ใช้สำหรับ login</h3>
+        
+              <div style="width: 80%; display: flex; flex-direction:column;background: #E7E9EB;padding: 10px; border-radius: 10px;"> 
+              <div>
+               <h2> Example</h2>
+              </div>
+        
+              <div style="width: 100%; height: 350px; overflow-y: auto; white-space: pre-wrap; background: white;">
+               <p>
+                function loginFun() {
+
+                  var mData = {
+                      "mobile": $("#mobileLogin").val(),
+                      "password": $("#password").val(),
+                  }
+                  if (deviceId) {
+  
+                      mData = {
+                          "mobile": $("#mobileLogin").val(),
+                          "password": $("#password").val(),
+                      }
+                  }
+                  $.ajax({
+                      type: "post",
+                      url: API_SERVER + "/v1/auth/login",
+                      data: JSON.stringify(mData),
+                      contentType: "application/json",
+                      dataType: "json",
+                      async: true,
+                      timeout: 100000,
+                      beforeSend: function (xmlhttprequest) {
+                      },
+                      success: function (data) {
+                          loaderObj.unShow();
+  
+  
+                          if (data.code == 0) {
+  
+                              // location.reload();
+                              cleanInput();
+                              var tokenObj = data.result;
+                              localStorage.setItem('token', JSON.stringify(tokenObj));
+                              mainObj.checkIsLogin();
+                          }
+                          else {
+                              msgPageObj.show(getStatusCode(data.code))
+                          }
+                      },
+                      error: function (xmlhttprequest, error) {
+                          loaderObj.unShow();
+                          msgPageObj.show(NSLang('sys.serverError'))
+                      },
+                      complete: function () {
+                      }
+                  });
+  
+                  function cleanInput() {
+                      $("#username").val('');
+                      $("#password").val('');
+                  }
+              }
+               </p>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+         <!-- registerObj.checkLogin Content--> 
+         <div id="checkLoginContent" class="content"
+         style="width: 85%;display: none;  display: flex; flex-direction: column;padding-left: 20px">
+         <div>
+           <div>
+               <h1 style="font-size:30px;">Index</h1>
+             </div>
+         
+             <div>
+                 <h3>registerObj.checkLoginStatusWithRefreshToken(); (เช็คสถานะ ล็อคอิน)</h3>
+         
+               <div style="width: 80%; display: flex; flex-direction:column;background: #E7E9EB;padding: 10px; border-radius: 10px;"> 
+               <div>
+                <h2> Example</h2>
+               </div>
+         
+               <div style="width: 100%; height: 350px; overflow-y: auto; white-space: pre-wrap; background: white;">
+                <p>
+                  var registerObj = new register();
+                  registerObj.init();
+                </p>
+               </div>
+               </div>
+             </div>
+           </div>
+         </div>
+         
+            <!-- registerObj.checkLogin Content--> 
+            <div id="registerFunContent" class="content"
+            style="width: 85%;display: none;  display: flex; flex-direction: column;padding-left: 20px">
+            <div>
+              <div>
+                  <h1 style="font-size:30px;">Index</h1>
+                </div>
+            
+                <div>
+                    <h3>registerFun(); ใช้สำหรับ ลงทะเบียน</h3>
+            
+                  <div style="width: 80%; display: flex; flex-direction:column;background: #E7E9EB;padding: 10px; border-radius: 10px;"> 
+                  <div>
+                   <h2> Example</h2>
+                  </div>
+            
+                  <div style="width: 100%; height: 350px; overflow-y: auto; white-space: pre-wrap; background: white;">
+                   <p>
+                    function registerFun() {
+
+                      loaderObj.show();
+                      var mData = {
+                          "mobile": $("#mobile").val(),
+                          "name": $("#name").val(),
+                          "password": $("#r_password").val(),
+                          "inviteCode": $("#inviteCode").val(),
+                      }
+      
+                      $.ajax({
+                          type: "post",
+                          url: API_SERVER + "/v1/auth/signUp",
+                          data: JSON.stringify(mData),
+                          contentType: "application/json",
+                          dataType: "json",
+                          async: true,
+                          timeout: 100000,
+                          beforeSend: function (xmlhttprequest) {
+                          },
+                          success: function (data) {
+      
+                              loaderObj.unShow();
+                              if (data.code == 0) {
+      
+                                  cleanInput();
+                                  msgPageObj.show(NSLang('register.success'))
+                                  setTimeout(function () {
+                                      pageUnShow('registerPage');
+                                  }, 1000)
+                              }
+                              else {
+      
+                                  msgPageObj.show(getStatusCode(data.code))
+                              }
+                          },
+                          error: function (xmlhttprequest, error) {
+      
+                              loaderObj.unShow();
+                              msgPageObj.show(NSLang('sys.serverError'))
+                              cleanInput();
+                            
+                          },
+                          complete: function () {
+                          }
+                      });
+      
+                      function cleanInput() {
+                          $("#name").val('');
+                          $("#mobile").val('');
+                          $("#r_password").val('');
+                          $("#r_password_again").val('');
+                          $("#inviteCode").val('');
+                      }
+                  }
+                   </p>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+    </div>
 </div>
 
 <!-- Modal container -->
@@ -185,11 +1127,19 @@
       name: "home",
     },
   ];
+  // console.log("dataNavbar:", dataNavbar);
 
-  console.log("dataNavbar:", dataNavbar);
+
+var headElement = document.head;
+var headData = headElement.outerHTML;
+// console.log("headData",headData);
+
+$("#title").text(headData)
+
 
   function setting() {
     var myScroll;
+
 
     this.init = function () {
       $("#tutorialHeader").css({
@@ -243,4 +1193,152 @@
       myScroll.refresh();
     }
   }
+
+  function toggleScript() {
+  $("#toggleOpen").toggleClass("toggles");
+
+  if ($("#toggleOpen").hasClass("toggles")) {
+    $("#script").addClass("active");
+  } else {
+    $("#script").removeClass("active");
+  }
+}
+  function toggleWidget() {
+  $("#toggleOpenWidget").toggleClass("toggleWidget");
+
+  if ($("#toggleOpenWidget").hasClass("toggleWidget")) {
+    $("#widget").addClass("active");
+  } else {
+    $("#widget").removeClass("active");
+  }
+}
+
+
+  function showContent(contentId) {
+    // ซ่อนทุก content ที่มีอยู่
+    $('.content').hide();
+
+    // แสดงเฉพาะ content ที่ต้องการ
+    $(contentId).show();
+  }
+
+  $(document).ready(function () {
+  showContent("#HeadContent");
+  $("#Head").addClass("active");
+  $("#SetAllPageLang, #firstCheckToken, #StartApp, #loginFun, #checkLoginStatusWithRefreshToken").removeClass("active");
+});
+
+$(document).ready(function () {
+  // Function to remove "active" class from all elements except the selected one
+  function setActive(elementId) {
+    $(".menuPage ul li").removeClass("active");
+    $(elementId).addClass("active");
+  }
+
+  // Event handlers for menu items
+  $("#Head").on("click", function () {
+    showContent("#HeadContent");
+    setActive("#Head");
+  });
+
+  $("#script").on("click", function () {
+    setActive("#script");
+  });
+
+  $("#varVariable").on("click", function () {
+    showContent("#varVariableContent");
+    setActive("#varVariable");
+  });
+
+  $("#api").on("click", function () {
+    showContent("#apiContent");
+    setActive("#api");
+  });
+
+  $("#StartApp").on("click", function () {
+    showContent("#startAppContent");
+    setActive("#StartApp");
+  });
+
+  $("#SetAllPageLang").on("click", function () {
+    showContent("#setAllPageLangContent");
+    setActive("#SetAllPageLang");
+  });
+
+  $("#firstCheckToken").on("click", function () {
+    showContent("#firstCheckTokenContent");
+    setActive("#firstCheckToken");
+  });
+
+  $("#widget").on("click", function () {
+    showContent("#widgetContent");
+    setActive("#widget");
+  });
+
+  $("#resObj").on("click", function () {
+    showContent("#resObjContent");
+    setActive("#resObj");
+  });
+
+  $("#pageShow").on("click", function () {
+    showContent("#pageShowContent");
+    setActive("#pageShow");
+  });
+
+  $("#pageUnShow").on("click", function () {
+    showContent("#pageUnShowContent");
+    setActive("#pageUnShow");
+  });
+
+  $("#alert").on("click", function () {
+    showContent("#alertContent");
+    setActive("#alert");
+  });
+
+  $("#loader").on("click", function () {
+    showContent("#loaderContent");
+    setActive("#loader");
+  });
+
+  $("#messageBox").on("click", function () {
+    showContent("#messageBoxContent");
+    setActive("#messageBox");
+  });
+
+  $("#messagePage").on("click", function () {
+    showContent("#messagePageContent");
+    setActive("#messagePage");
+  });
+
+  $("#checkIsAndroid").on("click", function () {
+    showContent("#checkIsAndroidContent");
+    setActive("#checkIsAndroid");
+  });
+
+  $("#pageInit").on("click", function () {
+    showContent("#pageInitContent");
+    setActive("#pageInit");
+  });
+
+  $("#loginFun").on("click", function () {
+    showContent("#loginFunContent");
+    setActive("#loginFun");
+  });
+
+  $("#checkLoginStatusWithRefreshToken").on("click", function () {
+    showContent("#checkLoginContent");
+    setActive("#checkLoginStatusWithRefreshToken");
+  });
+
+  $("#registerFun").on("click", function () {
+    showContent("#registerFunContent");
+    setActive("#registerFun");
+  });
+
+  $("#refreshToken").on("click", function () {
+    showContent("#refreshTokenContent");
+    setActive("#refreshToken");
+  });
+});
+
 </script>

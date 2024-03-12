@@ -2427,8 +2427,6 @@ on click menu to show content
                     $("#r_password_again").val('');
                     $("#inviteCode").val('');
                 }
-
-
             }
 
         }

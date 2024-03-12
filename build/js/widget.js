@@ -226,7 +226,6 @@ function loader() {
 }
 
 function messageBox() {
-
     this.init = function () {
         $("#messageBox").css({ "display": "none", "width": $(window).width(), "height": $(window).height() });
         $("#messageBoxBg").css({ "width": $(window).width(), "height": $(window).height() });

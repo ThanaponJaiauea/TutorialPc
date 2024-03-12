@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 
+<!-- หัวข้อ ใช้ฟอแมทนี้ และไม่มีplug in -->
 <head>
     <meta charset="utf-8">
     <meta name="viewport"
@@ -139,15 +140,18 @@
 </body>
 
 </html>
+
+
 <script>
 
-
+    //================================API=============================>>>
     // var API_SERVER = "http://18.142.136.157/api";
     var API_SERVER = "http://18.143.194.72/solar";
     var WS_SERVER = "ws://18.142.136.157/api";
+    //================================API=============================...
 
-
-
+    //================================ประกาศตัวแปร VAR=============================>>>
+    // 
     var token = null;
     var deviceId = null;
     var platform = null;
@@ -155,6 +159,11 @@
     var heartBeatTimer = null;
     var heartBeatTimeStamp = 0;
 
+    //=============================================================...   
+
+
+
+    //================================Widget VAR & function ที่สามรถใช้ร่วมกันได้=============================>>>
     var TIMEOUT = 10000;
     var PAGETIMEOUT = 300;//页面切换时间
 
@@ -203,7 +212,7 @@
 
         mResObj.showHtml("lang.html", "root");
         mResObj.showHtml("main.html", "root");
-        // mResObj.showHtml("start.html", "root");
+        mResObj.showHtml("start.html", "root");
         mResObj.showHtml("login.html", "root");
         mResObj.showHtml("register.html", "root");  
         mResObj.showHtml("tutorial.html", "root");  
@@ -213,9 +222,6 @@
         firstStartFun();
     }
 
-
-
-    
     function errorApp() {
         console.log("load error");
     }
@@ -261,8 +267,6 @@
     }
 
     function firstCheckToken() {
-
-
         if (token == null) {
             pageShow("loginPage");
             return;
@@ -298,9 +302,6 @@
             complete: function () {
             }
         });
-
-
-
     }
 
 </script>

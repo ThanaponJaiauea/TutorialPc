@@ -311,6 +311,7 @@
 
   function main() {
     this.init = function () {
+ 
       setAllUILang("main");
 
       $("#menu_main").css({ height: menuH });
@@ -444,9 +445,9 @@
       updateLoginStatus();
       if (token != null) {
         mainObj.refreshToken();
+        mainObj.menuTutorial();
       } else {
-        // pageShow("startPage");
-        // pageShow("tutorialPage");
+        pageShow("startPage");
       }
     };
 
